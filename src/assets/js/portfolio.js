@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
           </div>
           </div>
           <div class="list__text">
-            <p class="list__title">${data.title}</p>
+            <p class="list__title">${data.title.replace('<br>', '')}</p>
             <p class="list__data">${data.date}_${data.brand}</p>
           </div>
         </a>
