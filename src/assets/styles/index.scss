@@ -10,6 +10,7 @@
   /* main start */
   .page-title {
     position: relative;
+    cursor: default;
     word-break: break-all;
     z-index: 5;
     @include vw-max(font-size, 120);
@@ -23,6 +24,7 @@
 
   .title-img {
     position: absolute;
+    display: none;
     z-index: 1;
     @include vw-max(right, 229);
     @include vw-max(top, 226);
@@ -41,7 +43,7 @@
 
       &::after {
         content: '';
-        display: block;
+        display: none;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -127,33 +129,33 @@
       }
     }
 
-    &__img {
-      &:hover {
-        &::after {
-          opacity: 1;
-        }
-      }
+    // &__img {
+    //   &:hover {
+    //     &::after {
+    //       opacity: 1;
+    //     }
+    //   }
 
-      &::after {
-        content: 'View';
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        transition: all 0.2s ease-in;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        background-color: $color-red;
-        color: $color-white;
-        opacity: 0;
-        font-family: $en;
-        @include vw-max(width, 160);
-        @include vw-max(height, 161);
-        @include vw-max(font-size, 26);
-      }
-    }
+    //   &::after {
+    //     content: 'View';
+    //     position: absolute;
+    //     left: 50%;
+    //     top: 50%;
+    //     transform: translateX(-50%) translateY(-50%);
+    //     transition: all 0.2s ease-in;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     border-radius: 50%;
+    //     background-color: $color-red;
+    //     color: $color-white;
+    //     opacity: 0;
+    //     font-family: $en;
+    //     @include vw-max(width, 160);
+    //     @include vw-max(height, 161);
+    //     @include vw-max(font-size, 26);
+    //   }
+    // }
 
     &__txt {
       position: absolute;
@@ -366,6 +368,20 @@
     @include vw-max(border-radius, 32);
   }
   /* recruit end */
+
+  &.touchmode {
+    .title-img {
+      display: block;
+    }
+
+    .intro-video {
+      &__bg {
+        &::after {
+          display: block;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -382,6 +398,7 @@
       position: relative;
       right: 0;
       top: 0;
+      display: block;
       @include vw-mo(left, 264);
       @include vw-mo(width, 360);
       @include vw-mo(height, 360);
@@ -394,6 +411,7 @@
 
       &__bg {
         &::after {
+          display: block;
           background: center/cover no-repeat
             url('../images/main_video_btn_mo.png');
           @include vw-mo(width, 160);

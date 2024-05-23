@@ -1,5 +1,6 @@
 import Scroll from './module/Scroll';
 import StickyHeader from './module/StickyHeader';
+import Mouse from './module/Mouse';
 
 window.addEventListener('load', () => {
   const header = new StickyHeader();
@@ -11,4 +12,6 @@ window.addEventListener('load', () => {
       target: item,
     });
   });
+
+  const mouse = new Mouse();
 });

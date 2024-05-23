@@ -10,15 +10,15 @@
     &__sub {
       font-family: $en;
       font-weight: 600;
-      letter-spacing: -.01em;
+      letter-spacing: -0.01em;
       @include vw-max(font-size, 130);
       @include vw-max(line-height, 142);
     }
 
     &__desc {
       font-weight: 300;
-      letter-spacing: -.03em;
-      opacity: .9;
+      letter-spacing: -0.03em;
+      opacity: 0.9;
       @include vw-max(left, 735);
       @include vw-max(font-size, 22);
       @include vw-max(line-height, 38);
@@ -38,113 +38,105 @@
     &__item {
       position: relative;
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
+      align-items: flex-end;
       @include vw-max(gap, 230);
-    }
 
-    &__link {
-      order: 2;
+      &:nth-child(odd) {
+        .about__img {
+          order: 1;
+        }
+
+        .about__text-box {
+          order: 2;
+
+          .about__title {
+            @include vw-max(left, -315);
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        .about__img {
+          order: 2;
+        }
+
+        .about__title {
+          @include vw-max(left, 210);
+        }
+      }
     }
 
     &__img {
+      order: 2;
       position: relative;
       right: 0;
-      @include vw-max(margin-left, -336);
       @include vw-max(width, 505);
 
-      &:hover {
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, .7);
-        }
-      }
+      // &:hover {
+      //   &::before {
+      //     content: '';
+      //     position: absolute;
+      //     top: 0;
+      //     left: 0;
+      //     display: flex;
+      //     justify-content: center;
+      //     align-items: center;
+      //     width: 100%;
+      //     height: 100%;
+      //     background-color: rgba(0, 0, 0, .7);
+      //   }
+      // }
 
-      &:hover {
-        &::after {
-          content: "See \A our work";
-          position: absolute;
-          transform: translate(-50%, -50%);
-          top: 50%;
-          left: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-family: $en;
-          text-align: center;
-          white-space: pre;
-          border-radius: 50%;
-          background-color: $color-red;
-          color: $color-white;
-          @include vw-max(width, 160);
-          @include vw-max(height, 160);
-          @include vw-max(font-size, 26);
-          @include vw-max(line-height, 28);
-        }
-      }
+      // &:hover {
+      //   &::after {
+      //     content: "See \A our work";
+      //     position: absolute;
+      //     transform: translate(-50%, -50%);
+      //     top: 50%;
+      //     left: 50%;
+      //     display: flex;
+      //     justify-content: center;
+      //     align-items: center;
+      //     font-family: $en;
+      //     text-align: center;
+      //     white-space: pre;
+      //     border-radius: 50%;
+      //     background-color: $color-red;
+      //     color: $color-white;
+      //     @include vw-max(width, 160);
+      //     @include vw-max(height, 160);
+      //     @include vw-max(font-size, 26);
+      //     @include vw-max(line-height, 28);
+      //   }
+      // }
     }
 
     &__text-box {
+      position: relative;
       order: 1;
       z-index: 1;
+      @include vw-max(width, 505);
     }
 
     &__title {
+      position: absolute;
       font-family: $en;
       font-weight: 500;
       color: $color-white;
-      @include vw-max(margin-left, 80);
+      @include vw-max(top, -220);
       @include vw-max(font-size, 140);
-      @include vw-max(line-height, 147);
+      @include vw-max(line-height, 137);
     }
 
     &__desc {
       font-family: $kr;
       font-weight: 300;
-      letter-spacing: -.045em;
+      letter-spacing: -0.045em;
       color: $color-white;
-      opacity: .9;
+      opacity: 0.9;
       @include vw-max(font-size, 22);
       @include vw-max(line-height, 38);
-    }
-
-    &__item.about__item--odd {
-      .about__link {
-        order: 1;
-      }
-      .about__img {
-        position: relative;
-        right: auto;
-        margin-left: 0;
-      }
-
-      .about__text-box {
-        order: 2;
-
-        .about__title {
-          @include vw-max(margin-left, -315)
-        }
-      }
-    }
-
-    .about__item.about__item--even {
-      .about__link {
-        order: 2;
-      }
-      .about__img {
-        @include vw-max(margin-left, -407)
-      }
-
-      .about__title {
-        @include vw-max(margin-left, 108);
-      }
     }
   }
 
@@ -186,8 +178,8 @@
     }
 
     .page-sub {
-      letter-spacing: .2em;
-      @include vw-mo(font-size, 40)
+      letter-spacing: 0.2em;
+      @include vw-mo(font-size, 40);
     }
 
     .about {
@@ -196,6 +188,24 @@
 
       &__item {
         display: block;
+
+        &:nth-child(odd) {
+          .about__text-box {
+            .about__title {
+              @include vw-mo(margin-left, 0);
+            }
+          }
+        }
+
+        &:nth-child(even) {
+          .about__img {
+            @include vw-mo(margin-left, 0);
+          }
+
+          .about__title {
+            @include vw-mo(margin-left, 0);
+          }
+        }
       }
 
       &__img {
@@ -203,47 +213,30 @@
         width: 100%;
         margin-left: 0;
 
-        &:hover {
-          &::before,
-          &::after {
-            display: none;
-          }
-        }
-      }
-
-      &__item.about__item--odd {
-        .about__text-box {
-          .about__title {
-            @include vw-mo(margin-left, 0);
-          }
-        }
-      }
-
-      .about__item.about__item--even {
-        .about__img {
-          @include vw-mo(margin-left, 0);
-        }
-
-        .about__title {
-          @include vw-mo(margin-left, 0);
-        }
+        // &:hover {
+        //   &::before,
+        //   &::after {
+        //     display: none;
+        //   }
+        // }
       }
 
       &__text-box {
-        letter-spacing: -.03em;
+        width: 100%;
+        letter-spacing: -0.03em;
         @include vw-mo(padding-left, 15);
       }
 
       &__title {
-        @include vw-mo(margin-left, 0);
+        position: static;
         @include vw-mo(font-size, 100);
-        @include vw-mo(line-height, 70);
+        @include vw-mo(line-height, 75);
       }
 
       &__desc {
         font-weight: 300;
-        letter-spacing: -.025em;
-        opacity: .9;
+        letter-spacing: -0.025em;
+        opacity: 0.9;
         color: $color-white;
         @include vw-mo(font-size, 32);
         @include vw-mo(line-height, 48);

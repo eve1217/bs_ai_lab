@@ -2,6 +2,7 @@ import dataList from './module/dataList';
 import Project from './module/Project';
 import StickyHeader from './module/StickyHeader';
 import Scroll from './module/Scroll';
+import Mouse from './module/Mouse';
 
 window.addEventListener('load', () => {
   const header = new StickyHeader();
@@ -81,4 +82,6 @@ window.addEventListener('load', () => {
       });
     },
   });
+
+  const mouse = new Mouse();
 });

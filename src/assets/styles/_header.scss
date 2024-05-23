@@ -46,15 +46,16 @@
 
     &__menu {
       font-weight: bold;
-      color: #fff;
+      // color: #fff;
+      line-height: 2;
       text-transform: uppercase;
       text-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.2);
+      transition: color 0.1s;
       @include vw-max(font-size, 28);
-      @include vw-max(line-height, 43);
 
       &:hover {
         color: #f84525;
-        transition: 0.4s;
+        // transition: 0.4s;
       }
     }
   }

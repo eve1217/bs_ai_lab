@@ -4,6 +4,7 @@ import dataList from './module/dataList';
 import StickyHeader from './module/StickyHeader';
 import List from './module/List';
 import Scroll from './module/Scroll';
+import Mouse from './module/Mouse';
 
 window.addEventListener('load', () => {
   const header = new StickyHeader();
@@ -23,12 +24,12 @@ window.addEventListener('load', () => {
       const { category } = data;
 
       return `<div class="swiper-slide portfolio-swiper__item">
-        <a href="./portfolio/detail/?id=${data.id}" class="img-box portfolio-swiper__img">
-          <img src="${data.imgUrl.pc}" alt="" class="m-hide">
-          <img src="${data.imgUrl.mo}" alt="" class="m-show">
+        <a href="./portfolio/detail/?id=${data.id}" class="img-box portfolio-swiper__img" data-cursor-text="View">
+          <img src="${data.imgUrl.pc}" alt="" class="m-hide" draggable="false">
+          <img src="${data.imgUrl.mo}" alt="" class="m-show" draggable="false">
         </a>
   
-        <div class="portfolio-swiper__txt">
+        <div class="portfolio-swiper__txt" draggable="false">
           <p class="portfolio-swiper__title pc-mb-25 mo-mb-35 fade-in-up fade-in-up--01">${data.title.replace('<br>', '')}</p>
           <dl class="portfolio-swiper__desc en">
             <div class="portfolio-swiper__cont fade-in-up fade-in-up--02">
@@ -72,8 +73,9 @@ window.addEventListener('load', () => {
 
   // youtube 영상
   const player = new YT.Player('ytPlayer', {
-    // rel: 0,
+    // rel: 1,
     // controls: 0,
+    modestbranding: 1,
     height: '990',
     width: '1760',
     videoId: '01jT6CvmxXM',
@@ -85,4 +87,6 @@ window.addEventListener('load', () => {
     $player.classList.add('active');
     player.playVideo();
   });
+
+  const mouse = new Mouse();
 });

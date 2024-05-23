@@ -4,6 +4,7 @@ import dataList from './module/dataList';
 import StickyHeader from './module/StickyHeader';
 import List from './module/List';
 import Scroll from './module/Scroll';
+import Mouse from './module/Mouse';
 
 window.addEventListener('load', () => {
   const header = new StickyHeader();
@@ -59,4 +60,6 @@ window.addEventListener('load', () => {
       target: item,
     });
   });
+
+  const mouse = new Mouse();
 });
