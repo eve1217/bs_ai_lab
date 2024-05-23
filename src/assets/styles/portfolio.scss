@@ -8,7 +8,7 @@
   }
 
   .tab {
-    @include vw-max(margin-bottom, 40);
+    @include vw-max(margin-bottom, 145);
 
     &__box {
       display: flex; 
@@ -43,16 +43,34 @@
   }
 
   .list {
-      display: flex;
-      flex-wrap: wrap;
-      @include vw-max(gap, 20);
+      display: grid;
+      @include vw-max(grid-gap, 80);
+      @include vw-max(grid-template-columns, 580 580);
       
       &__item {
         position: relative;
-        @include vw-max(width, 400);
-        @include vw-max(height, 500);
+        @include vw-max(width, 580);
+        @include vw-max(height, 800);
+        
+        &:nth-child(2) {
+          @include vw-max(margin-top, 200);
+        }
+
+        &:nth-child(2n - 1) {
+          @include vw-max(margin-top, -200)
+        }
+        &:nth-child(1) {
+          margin-top: 0;
+        }
       }
     
+      &__img {
+        img {
+          @include vw-max(height, 580);
+          @include vw-max(border-radius, 60);
+        }
+      }
+
       &__link {
         position: relative;
         display: block;
@@ -73,37 +91,28 @@
       }    
   
       &__text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 100%;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(248, 69, 37, .9);          
-        transition: .4s top ease-out;
-        z-index: 1;
+        display: block;
+        @include vw-max(margin-top, 47);
         @include vw-max(padding, 0 20);
-        @include vw-max(gap, 20);
       }
 
       &__title {
-        color: $color-white;  
         font-weight: 700;
-        text-align: center;
+        text-align: left;
         word-break: keep-all;
-        @include vw-max(font-size, 42);
-        @include vw-max(font-size, 50); 
+        color: $color-gray;
+        @include vw-max(font-size, 28);
+        @include vw-max(line-height, 52); 
       }
       
       &__data {
         line-height: 1.5;
-        color: $color-white;  
-        font-weight: 400;
-        text-align: center;
+        color: $color-gray;  
+        font-weight: 200;
+        text-align: left;
         word-break: keep-all;
-        @include vw-max(font-size, 26); 
+        @include vw-max(font-size, 28); 
+        @include vw-max(line-height, 52); 
       }
     }
 
@@ -123,6 +132,7 @@
     .bs-portfolio {
       .page-title {
         @include vw-mo(text-indent, -5);
+        @include vw-mo(margin-bottom, 100);
       }
 
       .tab {
@@ -148,20 +158,36 @@
       }
 
       .list {
-        @include vw-mo(gap, 24);
+        @include vw-mo(grid-template-columns, 620);
+        @include vw-mo(grid-gap, 0);
         
         &__item {
-          @include vw-mo(width, 300);
-          @include vw-mo(height, 370);
+          @include vw-mo(width, 620);
+          @include vw-mo(height, 880);
+
+          &:nth-child(2) {
+            @include vw-mo(margin-top, 0);
+          }
+  
+          &:nth-child(2n - 1) {
+            @include vw-mo(margin-top, 0)
+          }
         }
       
+        &__img {
+          img {
+            @include vw-mo(height, 620);
+            @include vw-mo(border-radius, 60);
+          }
+        }
+
         &__text {
-          display: none;
-          @include vw-mo(gap, 20);
+          @include vw-mo(margin-top, 46);
         }
            
         &__title {
-          @include vw-mo(font-size, 42);
+          @include vw-mo(font-size, 36);
+          @include vw-mo(line-height, 64)
         }
 
         &__data {
@@ -169,7 +195,8 @@
           overflow: hidden;
           text-overflow: ellipsis;
           width: 90%;
-          @include vw-mo(font-size, 26); 
+          @include vw-mo(font-size, 36);
+          @include vw-mo(line-height, 62); 
         }        
       }
 
