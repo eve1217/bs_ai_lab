@@ -181,10 +181,8 @@
         }
       
         &__img {
-          img {
-            @include vw-mo(height, 620);
-            @include vw-mo(border-radius, 60);
-          }
+          @include vw-mo(height, 620);
+          @include vw-mo(border-radius, 60);       
         }
 
         &__text {
