@@ -44,8 +44,9 @@
 
 @media screen and (max-width: 768px) {
   .sec_footer {
-    @include vw-mo(height, 100);
-    @include vw-mo(padding, 0 48);
+    @include vw-mo(height, 141);
+    align-items: baseline;
+    @include vw-mo(padding, 40 48 0 48);
     margin: 0;
     border-top: 2px solid #60605f;
 
@@ -63,10 +64,10 @@
       &__copyright {
         position: absolute;
         @include vw-mo(right, 45);
-        @include vw-mo(bottom, 12);
+        @include vw-mo(bottom, 41);
         display: block;
         margin: 0;
-        @include vw-mo(font-size, 15);
+        @include vw-mo(font-size, 18);
       }
 
       &__contact {
