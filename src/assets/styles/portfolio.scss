@@ -142,6 +142,7 @@
       }
 
       .tab {
+        @include vw-mo(margin-bottom, 80);
         &__box {
           justify-content: flex-start;
         }

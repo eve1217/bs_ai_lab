@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
 
       return {
         pc: `../assets/images/portfolio_thumb_${id}${imgVer[id]?.pc ? imgVer[id].pc : ''}.jpg`,
-        mo: `../assets/images/portfolio_thumb_${id}${imgVer[id]?.mo ? imgVer[id].mo : ''}.jpg`,
+        // mo: `../assets/images/portfolio_thumb_${id}${imgVer[id]?.mo ? imgVer[id].mo : ''}.jpg`,
       };
     },
     renderHtml(data) {
@@ -30,8 +30,7 @@ window.addEventListener('load', () => {
         <a href="./detail/?id=${data.id}" class="list__link">
           <div class="list__img">
             <div class="img-box list__img__item">
-              <img src="${data.imgUrl.pc}" alt="" class="m-hide">
-              <img src="${data.imgUrl.mo}" alt="" class="m-show">
+              <img src="${data.imgUrl.pc}" alt="">
           </div>
           </div>
           <div class="list__text">
