@@ -28,9 +28,11 @@ window.addEventListener('load', () => {
     renderHtml(data) {
       return `<li class="list__item">
         <a href="./detail/?id=${data.id}" class="list__link">
-          <div class="img-box list__img">
-            <img src="${data.imgUrl.pc}" alt="" class="m-hide">
-            <img src="${data.imgUrl.mo}" alt="" class="m-show">
+          <div class="list__img">
+            <div class="img-box list__img__item">
+              <img src="${data.imgUrl.pc}" alt="" class="m-hide">
+              <img src="${data.imgUrl.mo}" alt="" class="m-show">
+          </div>
           </div>
           <div class="list__text">
             <p class="list__title">${data.title}</p>
