@@ -19,7 +19,7 @@ export default class List {
       id: false,
       increase: 6,
       initNum: {
-        pc: 9,
+        pc: 6,
         mo: 6,
       },
       currentPage: 0,
@@ -183,7 +183,7 @@ export default class List {
   init() {
     this.setImgData();
     this.initList();
-    this.addResizeEvt();
+    // this.addResizeEvt();
     if (this.useCategory.id) this.addCategoryEvt();
     if (this.usePaging.id) this.addMoreEvt();
   }
