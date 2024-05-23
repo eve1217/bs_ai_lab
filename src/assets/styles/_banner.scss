@@ -1,15 +1,10 @@
-.sec_banner {
-  .adstorm-banner {
-    @include vw-pc(width, 1240);
-    @include vw-pc(margin, 0 auto 4);
-  }
+.adstorm-banner {
+  width: 100%;
+  @include vw-max(margin-bottom, 4);
 }
 
 @media screen and (max-width: 768px) {
-  .sec_banner {
-    .adstorm-banner {
-      width: 100%;
-      margin: 0;
-    }
+  .adstorm-banner {
+    margin: 0;
   }
 }
