@@ -21,8 +21,8 @@ window.addEventListener('load', () => {
       };
 
       return {
-        pc: `../assets/images/portfolio_thumb_${id}_pc${imgVer[id]?.pc ? imgVer[id].pc : ''}.jpg`,
-        mo: `../assets/images/portfolio_thumb_${id}_mo${imgVer[id]?.mo ? imgVer[id].mo : ''}.jpg`,
+        pc: `../assets/images/portfolio_thumb_${id}${imgVer[id]?.pc ? imgVer[id].pc : ''}.jpg`,
+        mo: `../assets/images/portfolio_thumb_${id}${imgVer[id]?.mo ? imgVer[id].mo : ''}.jpg`,
       };
     },
     renderHtml(data) {
