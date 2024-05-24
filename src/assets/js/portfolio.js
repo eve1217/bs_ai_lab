@@ -27,11 +27,9 @@ window.addEventListener('load', () => {
     },
     renderHtml(data) {
       return `<li class="list__item">
-        <a href="./detail/?id=${data.id}" class="list__link">
+        <a href="./detail/?id=${data.id}" class="list__link" data-cursor-text="View">
           <div class="list__img">
-            <div class="img-box list__img__item">
-              <img src="${data.imgUrl.pc}" alt="">
-          </div>
+            <img src="${data.imgUrl.pc}" alt="">
           </div>
           <div class="list__text">
             <p class="list__title">${data.title.replace('<br>', '')}</p>
