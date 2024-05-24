@@ -69,10 +69,10 @@
         @include vw-max(height, 580);
         @include vw-max(border-radius, 60);        
 
-        &__item {
+        img {
           transition: transform 0.7s ease-in-out;
           &:hover {
-            transform: scale(1.2);
+            transform: scale(1.07);
           }
         }
       }
@@ -182,8 +182,16 @@
         }
       
         &__img {
+          overflow: hidden;
           @include vw-mo(height, 620);
-          @include vw-mo(border-radius, 60);       
+          @include vw-mo(border-radius, 60);        
+  
+          img {
+            transition: none;
+            &:hover {
+              transform: scale(1);
+            }
+          }
         }
 
         &__text {
