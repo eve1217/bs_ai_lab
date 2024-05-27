@@ -12,7 +12,7 @@ export default defineConfig(() => {
     appType: 'mpa',
     publicDir: path.resolve(__dirname, 'public'),
     root: path.resolve(__dirname, 'src'),
-    base: '/bstones/',
+    // base: '/bstones/',
     build: {
       outDir: '../dist',
       assetsInlineLimit: 0,
