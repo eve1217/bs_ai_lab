@@ -84,6 +84,8 @@
 
   #localVideo.m-hide {
     @include vw-max(max-width, 1760);
+    outline: none;
+    border: none;
   }
 
   /* portfolio start */
@@ -429,6 +431,8 @@
 
     #localVideo.m-show {
       @include vw-mo(max-width, 720);
+      outline: none;
+      border: none;
     }
 
     /* portfolio start */
