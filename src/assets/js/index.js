@@ -72,21 +72,23 @@ window.addEventListener('load', () => {
   });
 
   // youtube 영상
-  const player = new YT.Player('ytPlayer', {
-    // rel: 1,
-    // controls: 0,
-    modestbranding: 1,
-    height: '990',
-    width: '1760',
-    videoId: '01jT6CvmxXM',
-  });
+  // const player = new YT.Player('ytPlayer', {
+  //   // rel: 1,
+  //   // controls: 0,
+  //   modestbranding: 1,
+  //   height: '990',
+  //   width: '1760',
+  //   videoId: '01jT6CvmxXM',
+  // });
 
-  const $player = document.getElementById('mainVideo');
-  const $playBtn = document.querySelector('#btnPlay');
-  $playBtn.addEventListener('click', (e) => {
-    $player.classList.add('active');
-    player.playVideo();
-  });
+  // const $player = document.getElementById('mainVideo');
+  // const $playBtn = document.querySelector('#btnPlay');
+  // const localVideo = document.getElementById('localVideo');
+  // $playBtn.addEventListener('click', (e) => {
+  //   $player.classList.add('active');
+  //   // player.playVideo();
+  //   localVideo.play();
+  // });
 
   const mouse = new Mouse();
 });
