@@ -82,6 +82,10 @@
   //   }
   // }
 
+  #localVideo.m-hide {
+    @include vw-max(max-width, 1760);
+  }
+
   /* portfolio start */
   .page-sub {
     &--portfolio {
@@ -403,24 +407,28 @@
       @include vw-mo(margin-bottom, 80);
     }
 
-    .intro-video {
-      width: 100%;
-      @include vw-mo(height, 1280);
+    // .intro-video {
+    //   width: 100%;
+    //   @include vw-mo(height, 1280);
 
-      &__bg {
-        &::after {
-          display: block;
-          background: center/cover no-repeat
-            url('../images/main_video_btn_mo.png');
-          @include vw-mo(width, 160);
-          @include vw-mo(height, 161);
-        }
-      }
+    //   &__bg {
+    //     &::after {
+    //       display: block;
+    //       background: center/cover no-repeat
+    //         url('../images/main_video_btn_mo.png');
+    //       @include vw-mo(width, 160);
+    //       @include vw-mo(height, 161);
+    //     }
+    //   }
 
-      iframe {
-        width: 100%;
-        height: 100%;
-      }
+    //   iframe {
+    //     width: 100%;
+    //     height: 100%;
+    //   }
+    // }
+
+    #localVideo.m-show {
+      @include vw-mo(max-width, 720);
     }
 
     /* portfolio start */
