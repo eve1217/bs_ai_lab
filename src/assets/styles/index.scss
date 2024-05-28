@@ -30,62 +30,9 @@
     @include vw-max(height, 360);
   }
 
-  // .intro-video {
-  //   position: relative;
-  //   @include vw-max(width, 1760);
-  //   @include vw-max(height, 990);
-
-  //   &__bg {
-  //     width: 100%;
-  //     height: 100%;
-
-  //     &::after {
-  //       content: '';
-  //       display: none;
-  //       position: absolute;
-  //       left: 50%;
-  //       top: 50%;
-  //       transform: translateX(-50%) translateY(-50%);
-  //       transition: all 0.5s;
-  //       background: center/cover no-repeat
-  //         url('../images/main_video_btn_pc.png');
-  //       @include vw-max(width, 160);
-  //       @include vw-max(height, 161);
-  //     }
-
-  //     &:hover {
-  //       &::after {
-  //         transform: translateX(-50%) translateY(-50%) scale(1.2);
-  //       }
-  //     }
-  //   }
-
-  //   &__player {
-  //     display: none;
-  //     width: 100%;
-  //     height: 100%;
-  //   }
-
-  //   iframe {
-  //     width: 100%;
-  //     height: 100%;
-  //   }
-
-  //   &.active {
-  //     .intro-video__bg {
-  //       display: none;
-  //     }
-
-  //     .intro-video__player {
-  //       display: block;
-  //     }
-  //   }
-  // }
-
-  #localVideo.m-hide {
-    @include vw-max(max-width, 1760);
-    outline: none;
-    border: none;
+  .main-video {
+    @include vw-max(max-width, 710);
+    margin: 0 auto;
   }
 
   /* portfolio start */
@@ -409,30 +356,8 @@
       @include vw-mo(margin-bottom, 80);
     }
 
-    // .intro-video {
-    //   width: 100%;
-    //   @include vw-mo(height, 1280);
-
-    //   &__bg {
-    //     &::after {
-    //       display: block;
-    //       background: center/cover no-repeat
-    //         url('../images/main_video_btn_mo.png');
-    //       @include vw-mo(width, 160);
-    //       @include vw-mo(height, 161);
-    //     }
-    //   }
-
-    //   iframe {
-    //     width: 100%;
-    //     height: 100%;
-    //   }
-    // }
-
-    #localVideo.m-show {
+    .main-video {
       @include vw-mo(max-width, 720);
-      outline: none;
-      border: none;
     }
 
     /* portfolio start */
