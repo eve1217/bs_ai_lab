@@ -21,7 +21,7 @@
     }
 
     .js-mouse__img {
-      background-image: url('../images/main_deco_pc.png');
+      background-image: url('/images/main_deco_pc.png');
       opacity: 1;
     }
   }
@@ -33,7 +33,7 @@
 
     .js-mouse__img {
       opacity: 1;
-      background-image: url('../images/main_video_btn_pc.png');
+      background-image: url('/images/main_video_btn_pc.png');
     }
   }
 
@@ -76,7 +76,7 @@
     height: 100%;
     border-radius: 50%;
     background: center / contain no-repeat;
-    background-image: url('../images/cursor_placeholde.png');
+    background-image: url('/images/cursor_placeholde.png');
     opacity: 0;
     transition:
       opacity 0.3s,
