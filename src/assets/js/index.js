@@ -16,8 +16,8 @@ window.addEventListener('load', () => {
       const imgVer = {};
 
       return {
-        pc: `./assets/images/main_thumb_${id}_pc${imgVer[id]?.pc ? imgVer[id].pc : ''}.jpg`,
-        mo: `./assets/images/main_thumb_${id}_mo${imgVer[id]?.mo ? imgVer[id].mo : ''}.jpg`,
+        pc: `./images/main_thumb_${id}_pc${imgVer[id]?.pc ? imgVer[id].pc : ''}.jpg`,
+        mo: `./images/main_thumb_${id}_mo${imgVer[id]?.mo ? imgVer[id].mo : ''}.jpg`,
       };
     },
     renderHtml(data) {

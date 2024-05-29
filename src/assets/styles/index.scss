@@ -174,13 +174,13 @@
 
       &--prev {
         background: center/cover no-repeat
-          url('../images/main_portfolio_swiper_btn_prev_pc.png');
+          url('/images/main_portfolio_swiper_btn_prev_pc.png');
         @include vw-max(right, 376);
       }
 
       &--next {
         background: center/cover no-repeat
-          url('../images/main_portfolio_swiper_btn_next_pc.png');
+          url('/images/main_portfolio_swiper_btn_next_pc.png');
         @include vw-max(right, 260);
       }
 

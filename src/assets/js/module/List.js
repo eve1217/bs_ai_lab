@@ -41,8 +41,6 @@ export default class List {
 
       Object.keys(imgUrl).forEach((key) => {
         this.originData[i].imgUrl[key] = imgUrl[key];
-
-        // return new URL(`/assets/images/${imgUrl[key]}`, import.meta.url);
       });
     }
   }
