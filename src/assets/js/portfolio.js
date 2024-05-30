@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
       };
 
       return {
-        pc: `../images/portfolio_thumb_${id}${imgVer[id]?.pc ? imgVer[id].pc : ''}.jpg`,
+        pc: `../images/portfolio_thumb_${id}${imgVer[id]?.pc ? imgVer[id].pc : ''}.png`,
         // mo: `../assets/images/portfolio_thumb_${id}${imgVer[id]?.mo ? imgVer[id].mo : ''}.jpg`,
       };
     },
