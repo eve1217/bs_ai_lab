@@ -1,11 +1,12 @@
 const dataList = {"result":[
+  {"id":"2405","title":"AhnLab Mall <br>사이트 리뉴얼","date":"2024.05","brand":"AhnLab","category":"DEVELOPMENT","overview":"안랩몰 웹사이트 전면 개편 프로젝트: <br class=\"m-show\">신규 Framework 전환, 커머스 플랫폼으로 <br>역량 강화, UXUI/마케팅 강화"},
   {"id":"2402","title":"갤럭시 선물상담소 <br>프로모션","date":"2024.02","brand":"삼성전자","category":"PROMOTION","overview":"삼성닷컴에서 운영하고 있는 <br class=\"m-show\">참여형/고지형 프로모션 페이지를 월마다 <br class=\"m-show\">제작 및 운영."},
   {"id":"2309","title":"스파크플러스 <br>사이트 리뉴얼","date":"2023.09","brand":"스파크플러스","category":"DEVELOPMENT","overview":"공유오피스 사이트 UIUX 개선 프로젝트로 <br class=\"m-show\">기존의 불편하고 텍스트 위주의 UI를 걷어내고, <br class=\"m-show\">사진 등 미디어를 다수 활용한 브로셔 느낌의 <br class=\"m-show\">사이트로 신규 구축하였으며, API를 활용한 <br class=\"m-show\">매장 지도 서비스로 쉬운 UI 제공."},
   {"id":"230301","title":"THE iD 삼성카드 <br>프로모션","date":"2023.03","brand":"삼성카드","category":"PROMOTION","overview":"삼성카드에서 신규 런칭한 THE iD 카드 <br class=\"m-show\">프로모션으로 프리미엄 라인 카드에 어울리는 <br class=\"m-show\">블랙&화이트의 조합으로 품격 있게  제작."},
   {"id":"230302","title":"2023 미래에서 온 리퀘스트 <br>마이크로 사이트","date":"2023.03","brand":"SK","category":"PROMOTION","overview":"연간 2회 모바일 플래그십 제품이 <br class=\"m-show\">출시(언팩)될 때는 보안룸에서 별도 프로젝트로 <br class=\"m-show\">프로모션 제작 참여."},
   {"id":"230303","title":"삼성닷컴 글로벌 <br>사운드바 시뮬레이션","date":"2023.03","brand":"제일기획","category":"DEVELOPMENT","overview":"사용자의 요구사항에 적합한 사운드바를 <br class=\"m-show\">추천하는 시뮬레이터 사이트로 사용자 환경에 <br class=\"m-show\">따른 3D 공간 및 음향 효과를 시각적으로 표현하고, <br class=\"m-show\">사운드를 오디오 파일로 제공하여 오프라인으로도 <br class=\"m-show\">충분히 사운드바를 경험하고 구매할 수 있도록 <br class=\"m-show\">제안 및 구축."},
   {"id":"2211","title":"제일기획 <br>인스타그램 운영","date":"2022.11","brand":"제일기획","category":"SNS & BANNER","overview":"브랜드 IP 활용 콘텐츠 제작물을 통한 제일기획 <br class=\"m-show\">공식 인스타그램 채널 광고 기획/디자인 및 운영."},
-  {"id":"2209","title":"어떠케어 앱 <br>퍼블리싱 운영","date":"2022.09","brand":"GC녹십자","category":"MANAGEMENT","overview":"GC녹십자에서 운영하는 앱으로 <br class=\"m-show\">나를 위한 건강 케어 정보를 얻고 관련 서비스를 <br class=\"m-show\">누릴 수 있는 Health Care 앱 상시 운영."},
+  {"id":"2209","title":"어떠케어 앱 <br>퍼플리싱 운영","date":"2022.09","brand":"GC녹십자","category":"MANAGEMENT","overview":"GC녹십자에서 운영하는 앱으로 <br class=\"m-show\">나를 위한 건강 케어 정보를 얻고 관련 서비스를 <br class=\"m-show\">누릴 수 있는 Health Care 앱 상시 운영."},
   {"id":"220801","title":"삼성전자 <br>플래그십 언팩","date":"2022.08","brand":"삼성전자","category":"PROMOTION","overview":"연간 2회 모바일 플래그십 제품이 <br class=\"m-show\">출시(언팩)될 때는 보안룸에서 별도 프로젝트로 <br class=\"m-show\">프로모션 제작 참여."},
   {"id":"220802","title":"삼성전자 <br>갤럭시 스튜디오","date":"2022.08","brand":"삼성전자","category":"PROMOTION","overview":"연간 2회 모바일 플래그십 제품이 <br class=\"m-show\">출시(언팩)될 때는 보안룸에서 별도 프로젝트로 <br class=\"m-show\">프로모션 제작 참여."},
   {"id":"220401","title":"매그넘 초콜리프레시 <br>프로모션","date":"2022.04","brand":"유니레버","category":"PROMOTION","overview":"즉석당첨을 통한 이벤트 참여 및 제품 발송 후 <br class=\"m-show\">후기 이벤트 참여까지 가능한 프로모션 페이지 <br class=\"m-show\">제작."},
@@ -36,6 +37,6 @@ const dataList = {"result":[
   {"id":"0001","title":"삼성전자 <br>배너 제작 및 운영","date":"상시제작","brand":"삼성전자","category":"SNS & BANNER","overview":"사이트에 전시하는 배너 포함하여 <br class=\"m-show\">다양한 미디어 소재에 해당되는 배너 제작 및 <br class=\"m-show\">상시 운영."},
   {"id":"0002","title":"삼성카드 <br>배너 제작 및 운영","date":"상시제작","brand":"삼성카드","category":"SNS & BANNER","overview":"사이트에 전시하는 배너 포함하여 <br class=\"m-show\">다양한 미디어 소재에 해당되는 배너 제작 및 <br class=\"m-show\">상시 운영."},
   {"id":"0003","title":"그 외 배너 <br>배너제작 및 운영","date":"수시제작","brand":"아이더/동아제약/대한항공..","category":"SNS & BANNER","overview":"사이트에 전시하는 배너 포함하여 <br class=\"m-show\">다양한 미디어 소재에 해당되는 배너 제작 및 <br class=\"m-show\">상시 운영."}
-]}
+  ]}
 
 export default dataList;
