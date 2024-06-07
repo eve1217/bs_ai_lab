@@ -80,34 +80,6 @@
       }
     }
 
-    // &__img {
-    //   &:hover {
-    //     &::after {
-    //       opacity: 1;
-    //     }
-    //   }
-
-    //   &::after {
-    //     content: 'View';
-    //     position: absolute;
-    //     left: 50%;
-    //     top: 50%;
-    //     transform: translateX(-50%) translateY(-50%);
-    //     transition: all 0.2s ease-in;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     border-radius: 50%;
-    //     background-color: $color-red;
-    //     color: $color-white;
-    //     opacity: 0;
-    //     font-family: $en;
-    //     @include vw-max(width, 160);
-    //     @include vw-max(height, 161);
-    //     @include vw-max(font-size, 26);
-    //   }
-    // }
-
     &__txt {
       position: absolute;
       display: flex;
