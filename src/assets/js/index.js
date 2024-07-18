@@ -1,13 +1,13 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 import dataList from './module/dataList';
-import StickyHeader from './module/StickyHeader';
+// import StickyHeader from './module/StickyHeader';
 import List from './module/List';
 import Scroll from './module/Scroll';
 import Mouse from './module/Mouse';
 
 window.addEventListener('load', () => {
-  const header = new StickyHeader();
+  // const header = new StickyHeader();
 
   const portfolioList = new List({
     data: dataList.result.slice(0, 12),
@@ -57,6 +57,11 @@ window.addEventListener('load', () => {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+    },
+    autoplay: {
+      delay: 5000,
+      pauseOnMouseEnter: true,
+      disableOnInteraction: true,
     },
     // observer: true,
     // observeParents: true,
