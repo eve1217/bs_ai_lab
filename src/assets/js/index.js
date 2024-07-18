@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
       const { category } = data;
 
       return `<div class="swiper-slide portfolio-swiper__item">
-        <a href="./portfolio/detail/?id=${data.id}" class="img-box portfolio-swiper__img" data-cursor-text="View">
+        <a href="./portfolio/detail/?id=${data.id}" class="img-box portfolio-swiper__img" data-cursor-text="Click Here">
           <img src="${data.imgUrl.pc}" alt="" class="m-hide" draggable="false">
           <img src="${data.imgUrl.mo}" alt="" class="m-show" draggable="false">
         </a>
