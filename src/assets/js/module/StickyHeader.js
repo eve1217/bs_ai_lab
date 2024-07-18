@@ -8,24 +8,23 @@ export default class StickyHeader {
     this.init();
   }
 
-  addScrollEvt() {
-    this.prevScollY = window.scrollY;
-    window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > 0) {
-        this.target.classList.add('js-fixed');
-        if (currentScrollY < this.prevScollY) {
-          this.target.classList.add('js-show');
-        } else {
-          this.target.classList.remove('js-show');
-        }
-      } else {
-        this.target.classList.remove('js-fixed');
-      }
-
-      this.prevScollY = currentScrollY;
-    });
-  }
+  // addScrollEvt() {
+  //   this.prevScollY = window.scrollY;
+  //   window.addEventListener('scroll', () => {
+  //     const currentScrollY = window.scrollY;
+  //     if (currentScrollY > 0) {
+  //       this.target.classList.add('js-fixed');
+  //       if (currentScrollY < this.prevScollY) {
+  //         this.target.classList.add('js-show');
+  //       } else {
+  //         this.target.classList.remove('js-show');
+  //       }
+  //     } else {
+  //       this.target.classList.remove('js-fixed');
+  //     }
+  //     this.prevScollY = currentScrollY;
+  //   });
+  // }
 
   addClickEvt() {
     const $btnOpen = this.target.querySelector('#btnOpen');
@@ -59,8 +58,11 @@ export default class StickyHeader {
   }
 
   init() {
-    this.addScrollEvt();
+    // this.addScrollEvt();
     this.addClickEvt();
     this.addResizeEvt();
+
+    this.target.classList.add('js-fixed');
+    this.target.classList.add('js-show');
   }
 }
