@@ -128,6 +128,7 @@
       @include vw-max(top, -220);
       @include vw-max(font-size, 140);
       @include vw-max(line-height, 137);
+      width: max-content;
     }
 
     &__desc {
@@ -205,8 +206,10 @@
 
           .about__title {
             @include vw-mo(margin-left, 0);
-          }
+          }          
         }
+
+        .about__title--last{font-size: 12.888889vw;}
       }
 
       &__img {

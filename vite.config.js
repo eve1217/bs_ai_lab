@@ -6,9 +6,9 @@ import handlebars from 'vite-plugin-handlebars';
 
 export default defineConfig(() => {
   // 테스트 서버
-  const isTest = true;
+  // const isTest = true;
   // 라이브 서버
-  // const isTest = false;
+  const isTest = false;
   const baseRoot = isTest ? '/bstones/' : '/';
 
   return {
