@@ -80,6 +80,12 @@
       }
     }
 
+    &__img {
+      img {
+        opacity:.3;
+      }
+    }
+
     &__txt {
       position: absolute;
       display: flex;
@@ -87,8 +93,9 @@
       flex-direction: column;
       pointer-events: none;
       @include vw-max(width, 310);
-      @include vw-max(right, -190);
+      @include vw-max(right, -380);
       @include vw-max(bottom, 60);
+      z-index:1;
     }
 
     &__title {
@@ -180,7 +187,7 @@
 
       .portfolio-swiper__img {
         img {
-          opacity: 0.3;
+          opacity: 1;
           transition: 0.3s;
         }
       }
@@ -211,6 +218,21 @@
           transition:
             opacity 0.7s ease-in,
             transform 0.7s ease-in;
+        }
+      }
+    }
+
+    &__pagination {
+      &.swiper-pagination {
+        left:50%;
+        top:auto;
+        transform:translateX(-50%);
+        @include vw-max(bottom,195);
+        @include vw-max(width,1240);
+        background-color:#60605f;
+
+        .swiper-pagination-progressbar-fill {
+          background-color:#f84525;
         }
       }
     }

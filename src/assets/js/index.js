@@ -59,9 +59,13 @@ window.addEventListener('load', () => {
       prevEl: '.swiper-button-prev',
     },
     autoplay: {
-      delay: 5000,
+      delay: 2500,
       pauseOnMouseEnter: true,
       disableOnInteraction: true,
+    },
+    pagination: {
+      el: '.swiper-pagination.portfolio-swiper__pagination',
+      type: 'progressbar',
     },
     // observer: true,
     // observeParents: true,
