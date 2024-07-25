@@ -226,13 +226,21 @@
       &.swiper-pagination {
         left:50%;
         top:auto;
+        display:flex;
         transform:translateX(-50%);
         @include vw-max(bottom,195);
         @include vw-max(width,1240);
         background-color:#60605f;
 
-        .swiper-pagination-progressbar-fill {
-          background-color:#f84525;
+        .swiper-pagination-bullet {
+          width:100%;
+          margin:0;
+          border-radius:0;
+          background-color:#60605f;
+          
+          &.swiper-pagination-bullet-active {
+            background-color:#f84525;
+          }
         }
       }
     }
