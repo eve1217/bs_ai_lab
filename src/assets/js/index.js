@@ -61,7 +61,7 @@ window.addEventListener('load', () => {
     autoplay: {
       delay: 2500,
       pauseOnMouseEnter: true,
-      disableOnInteraction: true,
+      // disableOnInteraction: true,
     },
     pagination: {
       el: '.swiper-pagination.portfolio-swiper__pagination',
