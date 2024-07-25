@@ -346,7 +346,7 @@
       display: block;
       @include vw-mo(left, 264);
       @include vw-mo(width, 360);
-      @include vw-mo(height, 360);
+      @include vw-mo(height, 0);
       @include vw-mo(margin-bottom, 80);
     }
 
