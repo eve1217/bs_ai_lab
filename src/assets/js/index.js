@@ -65,7 +65,7 @@ window.addEventListener('load', () => {
     },
     pagination: {
       el: '.swiper-pagination.portfolio-swiper__pagination',
-      type: 'bullets',
+      type: 'progressbar',
       clickable: true,
     },
     // observer: true,

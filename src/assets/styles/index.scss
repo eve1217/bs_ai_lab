@@ -231,20 +231,25 @@
         transform:translateX(-50%);
         @include vw-max(bottom,195);
         @include vw-max(width,1240);
+        @include vw-max(height,3);
+        background-color:#60605f;
 
-        .swiper-pagination-bullet {
-          width:100%;
-          @include vw-max(height,3);
-          margin:0;
-          border-radius:0;
-          background-color:#60605f;
-          opacity: 1;
-          
-          &.swiper-pagination-bullet-active {
-            background-color:#f84525;
-            // @include vw-max(height,6);
-          }
+        .swiper-pagination-progressbar-fill {
+          background-color:#f84525;
         }
+
+        // .swiper-pagination-bullet {
+        //   width:100%;
+        //   @include vw-max(height,3);
+        //   margin:0;
+        //   border-radius:0;
+        //   background-color:#60605f;
+        //   opacity: 1;
+          
+        //   &.swiper-pagination-bullet-active {
+        //     background-color:#f84525;
+        //   }
+        // }
       }
     }
   }
@@ -464,6 +469,18 @@
       .swiper-slide-prev,
       .swiper-slide-active {
         left: 0;
+      }
+
+      &__pagination {
+        &.swiper-pagination {
+          @include vw-mo(bottom,30);
+          @include vw-mo(width,624);
+          @include vw-mo(height,6);
+  
+          // .swiper-pagination-bullet {
+          //   @include vw-mo(height,6);
+          // }
+        }
       }
     }
     /* portfolio end */
