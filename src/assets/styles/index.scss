@@ -255,6 +255,20 @@
   }
   /* portfolio end */
 
+  /* client start */
+  .client{
+    .inner-1240{
+      position: relative;
+    }
+    &__sub {
+      .page-sub--recruit {
+        letter-spacing: 0.23em;
+        @include vw-max(font-size, 28);
+      }
+    }
+  }
+  /* client end */
+
   /* recruit start */
   .recruit {
     .inner-1240 {
