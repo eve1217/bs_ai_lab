@@ -85,15 +85,34 @@ window.addEventListener('load', () => {
       pauseOnMouseEnter: true,
       // disableOnInteraction: true,
     },
-    pagination: {
-      el: '.swiper-pagination.portfolio-swiper__pagination',
-      type: 'progressbar',
-      clickable: true,
+    scrollbar: {
+      el: '.swiper-scrollbar.portfolio-swiper__pagination',
+      draggable: true,
     },
     // observer: true,
     // observeParents: true,
     resizeObserver: true,
+    on: {
+      slideChange() {
+        const slideLen = swiper.slides.length;
+        const currentIndex = swiper.realIndex;
+        const proBar = document.querySelector('.portfolio-swiper__progressbar');
+        const proBarCurr = document.querySelector(
+          '.portfolio-swiper__progressbar-current',
+        );
+        const progressPer = (currentIndex / slideLen) * 100;
+        proBar.style.width = `${progressPer}%`;
+        proBarCurr.style.width = `${100 / slideLen}%`;
+      },
+    },
   });
+
+  // 나중에 정리 해야함
+  const slideLen = swiper.slides.length;
+  const proBarCurr = document.querySelector(
+    '.portfolio-swiper__progressbar-current',
+  );
+  proBarCurr.style.width = `${100 / slideLen}%`;
 
   // scroll 애니메이션
   const $scrollBox = document.querySelectorAll('.js-scroll');
