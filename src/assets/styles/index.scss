@@ -263,10 +263,38 @@
     .inner-1240{
       position: relative;
     }
+
     &__sub {
       .page-sub--recruit {
         letter-spacing: 0.23em;
         @include vw-max(font-size, 28);
+      }
+    }
+
+    &__img {
+      @include vw-max(width,180);
+      opacity:.4;
+      transition:opacity 1s;
+
+      &.blink {
+        opacity:1;
+      }
+
+      &-container {
+        display:flex; align-items:center; flex-flow:row wrap; gap:60px 20px;
+      }
+    }    
+
+    &__box {
+      display:flex;
+      justify-content:center;
+      width:100%;
+      
+      &.gap20 {
+        @include vw-max(gap,60 20);
+      }
+      &.gap40 {
+        @include vw-max(gap,60 40);
       }
     }
   }
