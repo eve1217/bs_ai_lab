@@ -24,12 +24,18 @@ body {
 section {
   position: relative;
   margin: 0 auto;
-  @include vw-max(max-width, 1760);
+  @include vw-max(max-width, 1920);
 }
 
 section.width-full {
   max-width: none;
   margin: 0 auto;
+}
+
+.inner-1920 {
+  margin: 0 auto;
+  @include vw-max(max-width, 1920);
+  @include vw-max(width, 1920);
 }
 
 .inner-1240 {
@@ -222,6 +228,11 @@ section.width-full {
 @media all and (max-width: 768px) {
   section {
     max-width: none;
+  }
+
+  .inner-1920{
+    max-width: none;
+    @include vw-mo(width, 720);
   }
 
   .inner-1240 {

@@ -51,6 +51,28 @@ window.addEventListener('load', () => {
     },
   });
 
+  // kv 영역 스와이퍼
+  const mySwiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',
+    navigation: {
+      nextEl: '.swiper-button-next-kv',
+      prevEl: '.swiper-button-prev-kv',
+    },
+    autoplay: {
+      delay: 2500,
+      pauseOnMouseEnter: true,
+      disableOnInteraction: true,
+    },
+    pagination: {
+      el: '.swiper-pagination.kv-swiper__pagination',
+      type: 'bullets',
+      clickable: true,
+    },
+    // observer: true,
+    // observeParents: true,
+    resizeObserver: true,
+  });
+
   // main 포트폴리오 영역 스와이퍼
   const swiper = new Swiper('#mainPortfolio', {
     slidesPerView: 'auto',
