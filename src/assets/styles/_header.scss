@@ -1,5 +1,5 @@
 .wrapper {
-  @include vw-max(padding-top, 200);
+  @include vw-max(padding-top, 0);
 
   .header {
     display: flex;
