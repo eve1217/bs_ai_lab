@@ -223,7 +223,8 @@
     }
 
     &__pagination {
-      &.swiper-pagination {
+      &.swiper-scrollbar {
+        position:absolute;
         left:50%;
         top:auto;
         display:flex;
@@ -231,25 +232,27 @@
         transform:translateX(-50%);
         @include vw-max(bottom,195);
         @include vw-max(width,1240);
-        @include vw-max(height,3);
+        @include vw-max(height,1);
         background-color:#60605f;
+      }
 
-        .swiper-pagination-progressbar-fill {
-          background-color:#f84525;
-        }
+      .swiper-scrollbar-drag {
+        display:none;
+      }
+    }
 
-        // .swiper-pagination-bullet {
-        //   width:100%;
-        //   @include vw-max(height,3);
-        //   margin:0;
-        //   border-radius:0;
-        //   background-color:#60605f;
-        //   opacity: 1;
-          
-        //   &.swiper-pagination-bullet-active {
-        //     background-color:#f84525;
-        //   }
-        // }
+    &__progressbar {
+      position:relative;
+      height: 100%;
+      width: 0;
+      background-color: #fff;
+      transition:width .3s;
+
+      &-current {
+        width:0;
+        @include vw-max(height,7);
+        background-color:#f84525;
+        cursor:pointer;
       }
     }
   }
@@ -472,14 +475,17 @@
       }
 
       &__pagination {
-        &.swiper-pagination {
-          @include vw-mo(bottom,30);
-          @include vw-mo(width,624);
-          @include vw-mo(height,6);
+        &.swiper-scrollbar {
+          bottom:0;
+          width:100%;
+          @include vw-mo(height,1);
+        }
+      }
+
+      &__progressbar {
   
-          // .swiper-pagination-bullet {
-          //   @include vw-mo(height,6);
-          // }
+        &-current {
+          @include vw-mo(height,7);
         }
       }
     }
