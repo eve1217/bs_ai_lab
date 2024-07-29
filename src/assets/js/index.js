@@ -141,5 +141,77 @@ window.addEventListener('load', () => {
   //   localVideo.play();
   // });
 
+  // Client
+  function client() {
+    const clientContainer = document.querySelector('.client__img-container');
+    const clientBox = 4;
+    const clientItem = 5;
+
+    const imgData = [
+      { src: '/images/client_hyundai.png', alt: '현대로고' },
+      { src: '/images/client_samsung.png', alt: '삼성로고' },
+      { src: '/images/client_kia.png', alt: '기아로고' },
+      { src: '/images/client_cheil.png', alt: '제일로고' },
+      { src: '/images/client_amore.png', alt: '아모레퍼시픽로고' },
+      { src: '/images/client_ahnlab.png', alt: '안랩로고' },
+      { src: '/images/client_sm.png', alt: 'sm로고' },
+      { src: '/images/client_canon.png', alt: '캐논로고' },
+      { src: '/images/client_skt.png', alt: 'skt로고' },
+      { src: '/images/client_ptk.png', alt: 'ptk로고' },
+      { src: '/images/client_skp.png', alt: 'skp로고' },
+      { src: '/images/client_samyang.png', alt: '삼양로고' },
+      { src: '/images/client_yuhan.png', alt: '유한킴벌리로고' },
+      { src: '/images/client_hanwha.png', alt: '한화로고' },
+      { src: '/images/client_redbull.png', alt: '레드불로고' },
+      { src: '/images/client_cj.png', alt: 'cj푸드빌로고' },
+      { src: '/images/client_dongsuh.png', alt: '동서식품로고' },
+      { src: '/images/client_donga.png', alt: '동아제약로고' },
+      { src: '/images/client_bc.png', alt: 'bc카드로고' },
+      { src: '/images/client_converse.png', alt: '컨버스로고' },
+    ];
+
+    for (let i = 0; i < clientBox; i += 1) {
+      const box = document.createElement('div');
+      box.classList.add('client__box');
+
+      if (i === 0 || i === 3) {
+        box.classList.add('gap20');
+      } else if (i === 1 || i === 2) {
+        box.classList.add('gap40');
+      }
+
+      clientContainer.appendChild(box);
+    }
+
+    const boxes = Array.from(document.querySelectorAll('.client__box'));
+
+    imgData.forEach((arr, index) => {
+      const imgEl = document.createElement('img');
+      imgEl.src = arr.src;
+      imgEl.setAttribute('alt', arr.alt);
+      imgEl.classList.add('client__img');
+      const boxIndex = Math.floor(index / clientItem);
+      boxes[boxIndex].appendChild(imgEl);
+    });
+
+    const toggleOpacity = () => {
+      const allImages = Array.from(document.querySelectorAll('.client__img'));
+      allImages.forEach((image) => image.classList.remove('blink'));
+
+      const selectBlink = Array.from(
+        { length: allImages.length },
+        (_, index) => index,
+      )
+        .sort(() => 0.5 - Math.random())
+        .slice(0, clientItem);
+
+      selectBlink.forEach((index) => allImages[index].classList.add('blink'));
+    };
+
+    setInterval(toggleOpacity, 1500);
+  }
+  client();
+  // Client
+
   const mouse = new Mouse();
 });
