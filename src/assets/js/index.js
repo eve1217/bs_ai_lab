@@ -5,6 +5,7 @@ import StickyHeader from './module/StickyHeader';
 import List from './module/List';
 import Scroll from './module/Scroll';
 import Mouse from './module/Mouse';
+import { isMobile } from './module/utill';
 
 window.addEventListener('load', () => {
   const header = new StickyHeader();
@@ -142,6 +143,8 @@ window.addEventListener('load', () => {
   // });
 
   // Client
+  let opacityInterval;
+
   function client() {
     const clientContainer = document.querySelector('.client__img-container');
     const clientBox = 4;
@@ -170,17 +173,22 @@ window.addEventListener('load', () => {
       { src: '/images/client_converse.png', alt: '컨버스로고' },
     ];
 
-    for (let i = 0; i < clientBox; i += 1) {
-      const box = document.createElement('div');
-      box.classList.add('client__box');
+    // 기존 초기화
+    clientContainer.innerHTML = '';
 
-      if (i === 0 || i === 3) {
-        box.classList.add('gap20');
-      } else if (i === 1 || i === 2) {
-        box.classList.add('gap40');
+    if (isMobile() === 'pc') {
+      for (let i = 0; i < clientBox; i += 1) {
+        const box = document.createElement('div');
+        box.classList.add('client__box');
+
+        if (i === 0 || i === 3) {
+          box.classList.add('gap20');
+        } else if (i === 1 || i === 2) {
+          box.classList.add('gap40');
+        }
+
+        clientContainer.appendChild(box);
       }
-
-      clientContainer.appendChild(box);
     }
 
     const boxes = Array.from(document.querySelectorAll('.client__box'));
@@ -190,8 +198,12 @@ window.addEventListener('load', () => {
       imgEl.src = arr.src;
       imgEl.setAttribute('alt', arr.alt);
       imgEl.classList.add('client__img');
-      const boxIndex = Math.floor(index / clientItem);
-      boxes[boxIndex].appendChild(imgEl);
+      if (isMobile() === 'mo') {
+        clientContainer.appendChild(imgEl);
+      } else {
+        const boxIndex = Math.floor(index / clientItem);
+        boxes[boxIndex].appendChild(imgEl);
+      }
     });
 
     const toggleOpacity = () => {
@@ -208,9 +220,26 @@ window.addEventListener('load', () => {
       selectBlink.forEach((index) => allImages[index].classList.add('blink'));
     };
 
-    setInterval(toggleOpacity, 1500);
+    if (opacityInterval) {
+      clearInterval(opacityInterval);
+    }
+
+    opacityInterval = setInterval(toggleOpacity, 1500);
   }
+
+  function addResizeEvt() {
+    let timer;
+
+    window.addEventListener('resize', () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        client();
+      }, 100);
+    });
+  }
+
   client();
+  addResizeEvt();
   // Client
 
   const mouse = new Mouse();

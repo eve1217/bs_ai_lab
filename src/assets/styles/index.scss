@@ -362,6 +362,14 @@
       position: relative;
     }
 
+    &-js-scroll.js-scroll.scroll-border {
+      &::before{
+        @include vw-max(width,1240);
+        left:50%;
+        transform:translateX(-50%);
+      }
+    }
+
     &__sub {
       .page-sub--recruit {
         letter-spacing: 0.23em;
@@ -634,9 +642,35 @@
     }
     /* portfolio end */
 
+    /* client start */
+    .client{
+
+      &__sub {
+        .page-sub--recruit {
+          @include vw-mo(font-size, 40);
+        }
+      }
+
+      &__img {
+        @include vw-mo(width,180);
+
+        &-container {
+          justify-content:center;
+          @include vw-mo(gap,60 20);
+        }
+      }
+    }
+    /* client end */
+
     /* recruit start */
     .recruit {
       position: relative;
+
+      &-js-scroll.js-scroll.scroll-border {
+        &::before{
+          width:100%;
+        }
+      }
 
       &__sub {
         .page-sub--recruit {
