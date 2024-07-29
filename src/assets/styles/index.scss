@@ -46,6 +46,10 @@
       
       &-05::before{z-index: 1; content: ''; position: absolute; @include vw-max(bottom, 175); @include vw-max(right, 130); @include vw-max(width,177); @include vw-max(height, 227); background: url('/images/kv_05_imgA_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion-bottom 0.6s linear 0s infinite alternate; margin-bottom: 0;}
     }
+    .video_box{
+      @include vw-max(width, 1920); height: auto;
+      .kv_video{@include vw-max(width, 1920);}
+    }
     .text{
       &-box{position: absolute; @include vw-max(top, 539); @include vw-max(left, 339);}
       &-main{@include vw-max(font-size, 48); @include vw-max(line-height, 60); font-weight: 700;}
@@ -466,6 +470,56 @@
     .main-video {
       @include vw-mo(max-width, 720);
     }
+
+    /* kv start */
+    .kv{
+      @include vw-mo(max-width, 720);
+      .slide-box{
+        &-03::before, &-03::after, &-04::before, &-05::before{display: none;}      
+      }
+      .video_box{
+        @include vw-mo(width, 720);
+        .kv_video{@include vw-mo(width, 720);}
+      }
+      .text{
+        &-box{position: absolute; @include vw-mo(top, 80 ); @include vw-mo(left, 48);}
+        &-main{@include vw-mo(font-size, 60); @include vw-mo(line-height, 72);}
+      }
+
+      // 스와이퍼 네비
+      .kv-swiper__navi {
+        @include vw-mo(width, 67); @include vw-mo(height, 67);
+        &--prev {z-index: 1; @include vw-mo(bottom, 0); @include vw-mo(left, 0); background: center/cover no-repeat url('/images/kv_swiper_btn_prev_mo.png');}
+        &--next {z-index: 1; @include vw-mo(bottom, 78); @include vw-mo(left, 404); background: center/cover no-repeat url('/images/kv_swiper_btn_next_mo.png');}
+      }
+
+      // 스와이퍼 페이지네이션
+      .kv-swiper__pagination-wrap {
+        position: relative;
+        .swiper-pagination {
+          display: flex; flex-direction: column; justify-content: end; align-items: flex-end; @include vw-mo(gap, 16); position: absolute; @include vw-mo(bottom, 540); @include vw-mo(left, 1765); width: auto; text-align: initial;
+          
+          .swiper-pagination-bullet{@include vw-mo(width, 15); @include vw-mo(height, 2); background-color: #888; opacity: .5; margin: 0; border-radius: 0;}
+          .swiper-pagination-bullet-active{@include vw-mo(width, 30); background-color: #fff; opacity: 1; margin: 0;}
+        }
+        
+      }
+    }
+    
+    // 에니메이션 효과 설정
+    @keyframes motion {
+      0% {margin-top: -5px;}
+      100% {margin-top: 5px;}
+    }
+    @keyframes motion2 {
+      0% {margin-top: -7px;}
+      100% {margin-top: 7px;}
+    }
+    @keyframes motion-bottom {
+      0% {margin-bottom: -5px;}
+      100% {margin-bottom: 5px;}
+    }
+    /* kv end */
 
     /* portfolio start */
     .page-sub {
