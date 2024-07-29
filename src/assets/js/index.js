@@ -59,7 +59,7 @@ window.addEventListener('load', () => {
       prevEl: '.swiper-button-prev-kv',
     },
     autoplay: {
-      delay: 2500,
+      delay: 5000,
       pauseOnMouseEnter: true,
       disableOnInteraction: true,
     },

@@ -60,31 +60,15 @@
     }
 
     // 스와이퍼 페이지네이션
-    .kv-swiper__pagination {
-      &.swiper-pagination {
-        left:50%;
-        top:auto;
-        display:flex;
-        align-items:center;
-        transform:translateX(-50%);
-        @include vw-max(top, 500);
-        @include vw-max(left, 2350);
-        @include vw-max(width,1240);
-        @include vw-max(height,3);
-
-        // .swiper-pagination-bullet {
-        //   width:100%;
-        //   @include vw-max(height,3);
-        //   margin:0;
-        //   border-radius:0;
-        //   background-color:#60605f;
-        //   opacity: 1;
-          
-        //   &.swiper-pagination-bullet-active {
-        //     background-color:#f84525;
-        //   }
-        // }
+    .kv-swiper__pagination-wrap {
+      position: relative;
+      .swiper-pagination {
+        display: flex; flex-direction: column; justify-content: end; align-items: flex-end; @include vw-max(gap, 16); position: absolute; @include vw-max(bottom, 540); @include vw-max(left, 1765); width: auto; text-align: initial;
+        
+        .swiper-pagination-bullet{@include vw-max(width, 15); @include vw-max(height, 2); background-color: #888; opacity: .5; margin: 0; border-radius: 0;}
+        .swiper-pagination-bullet-active{@include vw-max(width, 30); background-color: #fff; opacity: 1; margin: 0;}
       }
+      
     }
   }
   
