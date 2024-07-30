@@ -39,6 +39,7 @@
   .kv{
     .slide-box{
       position: relative;
+      transition:transform .8s;
       &-03::before{z-index: 1; content: ''; position: absolute; @include vw-max(top, 284); @include vw-max(left, 903); @include vw-max(width,344); @include vw-max(height, 488); background: url('/images/kv_03_imgD_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion 1s linear 0s infinite alternate; margin-top: 0;}
       &-03::after{z-index: 1; content: ''; position: absolute; @include vw-max(top, 150); @include vw-max(right, 288); @include vw-max(width,278); @include vw-max(height, 218); background: url('/images/kv_03_imgA_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion 1s linear 0s infinite alternate; margin-top: 0;}
       

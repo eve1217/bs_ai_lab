@@ -53,16 +53,85 @@ window.addEventListener('load', () => {
   });
 
   // kv 영역 스와이퍼
+  // 슬라이드 선택
+  function selectSlide(swiper) {
+    const { activeIndex } = swiper;
+    const { slides } = swiper;
+    const currentSlide = slides[activeIndex];
+    const prevSlide =
+      slides[activeIndex === 0 ? slides.length - 1 : activeIndex - 1];
+    const nextSlide =
+      slides[activeIndex === slides.length - 1 ? 0 : activeIndex + 1];
+    return { currentSlide, prevSlide, nextSlide };
+  }
+
+  // 슬라이드 스케일
+  function setSlideStyle(swiper, scale) {
+    const { currentSlide, prevSlide, nextSlide } = selectSlide(swiper);
+    currentSlide.style.transform = `scale(${scale})`;
+    prevSlide.style.transform = `scale(${scale})`;
+    nextSlide.style.transform = `scale(${scale})`;
+  }
+
+  // 슬라이드에 비디오 있음?
+  function isVideoSlide(slide) {
+    return slide.querySelector('video') !== null;
+  }
+
+  // 비디오 끝나면 이동
+  function videoEnd(swiper, video) {
+    video.addEventListener('ended', () => {
+      swiper.slideNext();
+    });
+  }
+
+  // 슬라이드 업뎃
+  function updateSlide(swiper) {
+    const { activeIndex, slides } = swiper;
+    const currentSlide = slides[activeIndex];
+
+    if (isVideoSlide(currentSlide)) {
+      swiper.autoplay.stop();
+      const video = currentSlide.querySelector('video');
+      if (video) {
+        videoEnd(swiper, video);
+
+        // 비디오가 멈춰있으면 첨으로 가서 재생함
+        if (video.paused) {
+          video.currentTime = 0;
+          video.play();
+        }
+      }
+    } else {
+      swiper.autoplay.start();
+    }
+  }
+
+  // 비디오 아닐때 멈춰줌
+  function pauseNotVisible(swiper) {
+    const { activeIndex, slides } = swiper;
+    slides.forEach((slide, index) => {
+      if (index !== activeIndex && isVideoSlide(slide)) {
+        const video = slide.querySelector('video');
+        if (video && !video.paused) {
+          video.pause();
+        }
+      }
+    });
+  }
+
   const mySwiper = new Swiper('.swiper-container', {
     slidesPerView: 'auto',
+    speed: 800,
+    loop: true,
     navigation: {
       nextEl: '.swiper-button-next-kv',
       prevEl: '.swiper-button-prev-kv',
     },
     autoplay: {
       delay: 5000,
-      pauseOnMouseEnter: true,
-      disableOnInteraction: true,
+      pauseOnMouseEnter: false,
+      disableOnInteraction: false,
     },
     pagination: {
       el: '.swiper-pagination.kv-swiper__pagination',
@@ -72,9 +141,34 @@ window.addEventListener('load', () => {
     // observer: true,
     // observeParents: true,
     resizeObserver: true,
+    on: {
+      slideChangeTransitionStart() {
+        setSlideStyle(mySwiper, 0.6);
+        pauseNotVisible(mySwiper);
+      },
+      slideChangeTransitionEnd() {
+        setSlideStyle(mySwiper, 1);
+        updateSlide(this);
+      },
+      slideChange() {
+        updateSlide(this);
+      },
+    },
   });
 
   // main 포트폴리오 영역 스와이퍼
+  const updateProgressBar = (swiper) => {
+    const slideLen = swiper.slides.length;
+    const currentIndex = swiper.realIndex;
+    const proBar = document.querySelector('.portfolio-swiper__progressbar');
+    const proBarCurr = document.querySelector(
+      '.portfolio-swiper__progressbar-current',
+    );
+    const progressPer = (currentIndex / slideLen) * 100;
+    proBar.style.width = `${progressPer}%`;
+    proBarCurr.style.width = `${100 / slideLen}%`;
+  };
+
   const swiper = new Swiper('#mainPortfolio', {
     slidesPerView: 'auto',
     navigation: {
@@ -95,25 +189,10 @@ window.addEventListener('load', () => {
     resizeObserver: true,
     on: {
       slideChange() {
-        const slideLen = swiper.slides.length;
-        const currentIndex = swiper.realIndex;
-        const proBar = document.querySelector('.portfolio-swiper__progressbar');
-        const proBarCurr = document.querySelector(
-          '.portfolio-swiper__progressbar-current',
-        );
-        const progressPer = (currentIndex / slideLen) * 100;
-        proBar.style.width = `${progressPer}%`;
-        proBarCurr.style.width = `${100 / slideLen}%`;
+        updateProgressBar(this);
       },
     },
   });
-
-  // 나중에 정리 해야함
-  const slideLen = swiper.slides.length;
-  const proBarCurr = document.querySelector(
-    '.portfolio-swiper__progressbar-current',
-  );
-  proBarCurr.style.width = `${100 / slideLen}%`;
 
   // scroll 애니메이션
   const $scrollBox = document.querySelectorAll('.js-scroll');
@@ -215,7 +294,7 @@ window.addEventListener('load', () => {
         (_, index) => index,
       )
         .sort(() => 0.5 - Math.random())
-        .slice(0, clientItem);
+        .slice(0, 5);
 
       selectBlink.forEach((index) => allImages[index].classList.add('blink'));
     };
@@ -224,7 +303,7 @@ window.addEventListener('load', () => {
       clearInterval(opacityInterval);
     }
 
-    opacityInterval = setInterval(toggleOpacity, 1500);
+    opacityInterval = setInterval(toggleOpacity, 1000);
   }
 
   function addResizeEvt() {
@@ -237,10 +316,12 @@ window.addEventListener('load', () => {
       }, 100);
     });
   }
+  // Client
 
+  updateSlide(mySwiper);
+  updateProgressBar(swiper);
   client();
   addResizeEvt();
-  // Client
 
   const mouse = new Mouse();
 });
