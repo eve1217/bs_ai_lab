@@ -34,15 +34,15 @@ window.addEventListener('load', () => {
           <p class="portfolio-swiper__title pc-mb-25 mo-mb-35 fade-in-up fade-in-up--01">${data.title.replace('<br>', '')}</p>
           <dl class="portfolio-swiper__desc en">
             <div class="portfolio-swiper__cont fade-in-up fade-in-up--02">
-              <dt class="portfolio-swiper__info portfolio-swiper__info--typea">Date:</dt>
+              <dt class="portfolio-swiper__info">Date:</dt>
               <dd class="portfolio-swiper__info">${data.date}</dd>
             </div>
             <div class="portfolio-swiper__cont fade-in-up fade-in-up--03">
-              <dt class="portfolio-swiper__info portfolio-swiper__info--typea">Brand:</dt>
-              <dd class="portfolio-swiper__info portfolio-swiper__info--typeb">${data.brand}</dd>
+              <dt class="portfolio-swiper__info">Brand:</dt>
+              <dd class="portfolio-swiper__info">${data.brand}</dd>
             </div>
             <div class="portfolio-swiper__cont fade-in-up fade-in-up--04">
-              <dt class="portfolio-swiper__info portfolio-swiper__info--typea">Type:</dt>
+              <dt class="portfolio-swiper__info">Type:</dt>
               <dd class="portfolio-swiper__info">${category.replace(/^[a-z]/, (char) => char.toUpperCase())}</dd>
             </div>
           </dl>
@@ -78,12 +78,12 @@ window.addEventListener('load', () => {
     return slide.querySelector('video') !== null;
   }
 
-  // 비디오 끝나면 이동
-  function videoEnd(swiper, video) {
-    video.addEventListener('ended', () => {
-      swiper.slideNext();
-    });
-  }
+  // // 비디오 끝나면 이동
+  // function videoEnd(swiper, video) {
+  //   video.addEventListener('ended', () => {
+  //     swiper.slideNext();
+  //   });
+  // }
 
   // 슬라이드 업뎃
   function updateSlide(swiper) {
@@ -91,19 +91,8 @@ window.addEventListener('load', () => {
     const currentSlide = slides[activeIndex];
 
     if (isVideoSlide(currentSlide)) {
-      swiper.autoplay.stop();
       const video = currentSlide.querySelector('video');
-      if (video) {
-        videoEnd(swiper, video);
-
-        // 비디오가 멈춰있으면 첨으로 가서 재생함
-        if (video.paused) {
-          video.currentTime = 0;
-          video.play();
-        }
-      }
-    } else {
-      swiper.autoplay.start();
+      video.play();
     }
   }
 
@@ -111,7 +100,8 @@ window.addEventListener('load', () => {
   function pauseNotVisible(swiper) {
     const { activeIndex, slides } = swiper;
     slides.forEach((slide, index) => {
-      if (index !== activeIndex && isVideoSlide(slide)) {
+      // if (index !== activeIndex && isVideoSlide(slide)) {
+      if (index !== activeIndex) {
         const video = slide.querySelector('video');
         if (video && !video.paused) {
           video.pause();
@@ -129,7 +119,7 @@ window.addEventListener('load', () => {
       prevEl: '.swiper-button-prev-kv',
     },
     autoplay: {
-      delay: 5000,
+      delay: 4000,
       pauseOnMouseEnter: false,
       disableOnInteraction: false,
     },
@@ -143,15 +133,12 @@ window.addEventListener('load', () => {
     resizeObserver: true,
     on: {
       slideChangeTransitionStart() {
-        setSlideStyle(mySwiper, 0.6);
+        setSlideStyle(mySwiper, 0.8);
         pauseNotVisible(mySwiper);
+        updateSlide(mySwiper);
       },
       slideChangeTransitionEnd() {
         setSlideStyle(mySwiper, 1);
-        updateSlide(this);
-      },
-      slideChange() {
-        updateSlide(this);
       },
     },
   });
@@ -230,26 +217,26 @@ window.addEventListener('load', () => {
     const clientItem = 5;
 
     const imgData = [
-      { src: '/images/client_hyundai.png', alt: '현대로고' },
-      { src: '/images/client_samsung.png', alt: '삼성로고' },
-      { src: '/images/client_kia.png', alt: '기아로고' },
-      { src: '/images/client_cheil.png', alt: '제일로고' },
-      { src: '/images/client_amore.png', alt: '아모레퍼시픽로고' },
-      { src: '/images/client_ahnlab.png', alt: '안랩로고' },
-      { src: '/images/client_sm.png', alt: 'sm로고' },
-      { src: '/images/client_canon.png', alt: '캐논로고' },
-      { src: '/images/client_skt.png', alt: 'skt로고' },
-      { src: '/images/client_ptk.png', alt: 'ptk로고' },
-      { src: '/images/client_skp.png', alt: 'skp로고' },
-      { src: '/images/client_samyang.png', alt: '삼양로고' },
-      { src: '/images/client_yuhan.png', alt: '유한킴벌리로고' },
-      { src: '/images/client_hanwha.png', alt: '한화로고' },
-      { src: '/images/client_redbull.png', alt: '레드불로고' },
-      { src: '/images/client_cj.png', alt: 'cj푸드빌로고' },
-      { src: '/images/client_dongsuh.png', alt: '동서식품로고' },
-      { src: '/images/client_donga.png', alt: '동아제약로고' },
-      { src: '/images/client_bc.png', alt: 'bc카드로고' },
-      { src: '/images/client_converse.png', alt: '컨버스로고' },
+      { src: '/bstones/images/client_hyundai.png', alt: '현대로고' },
+      { src: '/bstones/images/client_samsung.png', alt: '삼성로고' },
+      { src: '/bstones/images/client_kia.png', alt: '기아로고' },
+      { src: '/bstones/images/client_cheil.png', alt: '제일로고' },
+      { src: '/bstones/images/client_amore.png', alt: '아모레퍼시픽로고' },
+      { src: '/bstones/images/client_ahnlab.png', alt: '안랩로고' },
+      { src: '/bstones/images/client_sm.png', alt: 'sm로고' },
+      { src: '/bstones/images/client_canon.png', alt: '캐논로고' },
+      { src: '/bstones/images/client_skt.png', alt: 'skt로고' },
+      { src: '/bstones/images/client_ptk.png', alt: 'ptk로고' },
+      { src: '/bstones/images/client_skp.png', alt: 'skp로고' },
+      { src: '/bstones/images/client_samyang.png', alt: '삼양로고' },
+      { src: '/bstones/images/client_yuhan.png', alt: '유한킴벌리로고' },
+      { src: '/bstones/images/client_hanwha.png', alt: '한화로고' },
+      { src: '/bstones/images/client_redbull.png', alt: '레드불로고' },
+      { src: '/bstones/images/client_cj.png', alt: 'cj푸드빌로고' },
+      { src: '/bstones/images/client_dongsuh.png', alt: '동서식품로고' },
+      { src: '/bstones/images/client_donga.png', alt: '동아제약로고' },
+      { src: '/bstones/images/client_bc.png', alt: 'bc카드로고' },
+      { src: '/bstones/images/client_converse.png', alt: '컨버스로고' },
     ];
 
     // 기존 초기화
@@ -318,7 +305,6 @@ window.addEventListener('load', () => {
   }
   // Client
 
-  updateSlide(mySwiper);
   updateProgressBar(swiper);
   client();
   addResizeEvt();

@@ -39,7 +39,7 @@
   .kv{
     .slide-box{
       position: relative;
-      transition:transform .8s;
+      transition:transform .8s ease-out;
       &-03::before{z-index: 1; content: ''; position: absolute; @include vw-max(top, 284); @include vw-max(left, 903); @include vw-max(width,344); @include vw-max(height, 488); background: url('/images/kv_03_imgD_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion 1s linear 0s infinite alternate; margin-top: 0;}
       &-03::after{z-index: 1; content: ''; position: absolute; @include vw-max(top, 150); @include vw-max(right, 288); @include vw-max(width,278); @include vw-max(height, 218); background: url('/images/kv_03_imgA_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion 1s linear 0s infinite alternate; margin-top: 0;}
       
@@ -111,8 +111,8 @@
         border-right: 2px solid $color-red;
         @include vw-max(border-width, 2);
         @include vw-max(left, 15);
-        @include vw-max(width, 14);
-        @include vw-max(height, 14);
+        @include vw-max(width, 12);
+        @include vw-max(height, 12);
       }
     }
   }
@@ -164,8 +164,8 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       @include vw-max(width, 310);
-      @include vw-max(height, 122);
-      @include vw-max(font-size, 42);
+      // @include vw-max(height, 122);
+      @include vw-max(font-size, 30);
       @include vw-max(letter-spacing, -1);
     }
 
@@ -175,8 +175,8 @@
 
     &__info {
       display: inline-block;
-      @include vw-max(font-size, 28);
-      @include vw-max(line-height, 50);
+      @include vw-max(font-size, 22);
+      @include vw-max(line-height, 36);
       @include vw-max(letter-spacing, 0.2);
 
       &--typea {
@@ -324,7 +324,7 @@
     &__sub {
       .page-sub--recruit {
         letter-spacing: 0.23em;
-        @include vw-max(font-size, 28);
+        @include vw-max(font-size, 24);
       }
     }
 
@@ -379,19 +379,19 @@
     }
 
     &__text {
-      @include vw-max(font-size, 54);
+      @include vw-max(font-size, 60);
       @include vw-max(line-height, 90);
       @include vw-max(letter-spacing, -1);
     }
 
     &__desc {
-      @include vw-max(font-size, 21);
+      @include vw-max(font-size, 22);
       @include vw-max(line-height, 36);
     }
 
     &__info {
       color: $color-gray;
-      @include vw-max(font-size, 24);
+      @include vw-max(font-size, 22);
       @include vw-max(line-height, 29);
       @include vw-max(letter-spacing, -0.3);
     }
@@ -490,8 +490,13 @@
         @include vw-mo(width, 720);
         .kv_video{@include vw-mo(width, 720);}
       }
+
+      .video_box,
+      .img-box {
+        opacity:.4;
+      }
       .text{
-        &-box{position: absolute; @include vw-mo(top, 80 ); @include vw-mo(left, 48);}
+        &-box{position: absolute; @include vw-mo(top, 210); @include vw-mo(left, 48);}
         &-main{@include vw-mo(font-size, 60); @include vw-mo(line-height, 72);}
       }
 
@@ -594,13 +599,13 @@
       &__title {
         width: auto;
         height: auto;
-        @include vw-mo(font-size, 60);
-        @include vw-mo(line-height, 80);
+        @include vw-mo(font-size, 40);
+        @include vw-mo(line-height, 60);
       }
 
       &__info {
-        @include vw-mo(font-size, 44);
-        @include vw-mo(line-height, 58);
+        @include vw-mo(font-size, 32);
+        @include vw-mo(line-height, 48);
         @include vw-mo(letter-spacing, -0.6);
 
         &--typea {
@@ -682,20 +687,20 @@
 
       &__text {
         letter-spacing: 0;
-        @include vw-mo(font-size, 59);
+        @include vw-mo(font-size, 60);
         @include vw-mo(line-height, 90);
       }
 
       &__desc {
-        @include vw-mo(font-size, 41);
-        @include vw-mo(line-height, 57);
+        @include vw-mo(font-size, 32);
+        @include vw-mo(line-height, 48);
         @include vw-mo(letter-spacing, -2.3);
       }
 
       &__info {
         color: $color-gray;
-        @include vw-mo(font-size, 36);
-        @include vw-mo(line-height, 29);
+        @include vw-mo(font-size, 32);
+        @include vw-mo(line-height, 48);
         @include vw-mo(letter-spacing, -1);
       }
 

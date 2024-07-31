@@ -63,7 +63,7 @@
 
 @media screen and (max-width: 768px) {
   .wrapper {
-    @include vw-mo(padding-top, 155);
+    // @include vw-mo(padding-top, 155);
 
     .header {
       @include vw-mo(height, 155);
