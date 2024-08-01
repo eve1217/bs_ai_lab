@@ -41,7 +41,7 @@
     &__text {
       z-index:2;
       opacity:0;
-      transition:opacity .8s;
+      transition:opacity .4s;
       &.visible {
         opacity:1;
       }
@@ -499,12 +499,15 @@
       .video_box{
         @include vw-mo(width, 720);
         .kv_video{@include vw-mo(width, 720);}
+
+        &.none_dim {opacity:1;}
       }
 
       .video_box,
       .img-box {
         opacity:.4;
       }
+
       .text{
         &-box{position: absolute; @include vw-mo(top, 210); @include vw-mo(left, 48);}
         &-main{@include vw-mo(font-size, 60); @include vw-mo(line-height, 72);}
