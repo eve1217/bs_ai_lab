@@ -4,6 +4,7 @@
 
 .bs-home {
   overflow: hidden;
+  padding-top:0;
 
   /* main start */
   .page-title {
@@ -37,6 +38,14 @@
 
   /* kv start */
   .kv{
+    &__text {
+      z-index:2;
+      opacity:0;
+      transition:opacity .8s;
+      &.visible {
+        opacity:1;
+      }
+    }
     .slide-box{
       position: relative;
       transition:transform .8s ease-out;
@@ -53,7 +62,7 @@
     }
     .text{
       &-box{position: absolute; @include vw-max(top, 539); @include vw-max(left, 339);}
-      &-main{@include vw-max(font-size, 48); @include vw-max(line-height, 60); font-weight: 700;}
+      &-main{@include vw-max(font-size, 48); @include vw-max(line-height, 60); font-weight: 600;}
       &-bold{color: #f84525;}
     }
 
@@ -281,6 +290,7 @@
 
     &__pagination {
       &.swiper-scrollbar {
+        z-index:1;
         position:absolute;
         left:50%;
         top:auto;

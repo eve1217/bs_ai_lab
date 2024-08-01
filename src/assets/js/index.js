@@ -78,12 +78,12 @@ window.addEventListener('load', () => {
     return slide.querySelector('video') !== null;
   }
 
-  // // 비디오 끝나면 이동
-  // function videoEnd(swiper, video) {
-  //   video.addEventListener('ended', () => {
-  //     swiper.slideNext();
-  //   });
-  // }
+  // 비디오 끝나면 이동
+  function videoEnd(swiper, video) {
+    video.addEventListener('ended', () => {
+      swiper.slideNext();
+    });
+  }
 
   // 슬라이드 업뎃
   function updateSlide(swiper) {
@@ -92,7 +92,11 @@ window.addEventListener('load', () => {
 
     if (isVideoSlide(currentSlide)) {
       const video = currentSlide.querySelector('video');
-      video.play();
+      if (video) {
+        video.muted = true;
+        video.currentTime = 0;
+        video.play();
+      }
     }
   }
 
@@ -100,7 +104,6 @@ window.addEventListener('load', () => {
   function pauseNotVisible(swiper) {
     const { activeIndex, slides } = swiper;
     slides.forEach((slide, index) => {
-      // if (index !== activeIndex && isVideoSlide(slide)) {
       if (index !== activeIndex) {
         const video = slide.querySelector('video');
         if (video && !video.paused) {
@@ -128,17 +131,25 @@ window.addEventListener('load', () => {
       type: 'bullets',
       clickable: true,
     },
-    // observer: true,
-    // observeParents: true,
     resizeObserver: true,
     on: {
       slideChangeTransitionStart() {
         setSlideStyle(mySwiper, 0.8);
         pauseNotVisible(mySwiper);
-        updateSlide(mySwiper);
+        updateSlide(this);
       },
       slideChangeTransitionEnd() {
         setSlideStyle(mySwiper, 1);
+        updateSlide(this);
+        const kvText = document.querySelector('.kv__text');
+        const slideIndex = selectSlide(this).currentSlide.getAttribute(
+          'data-swiper-slide-index',
+        );
+        if (slideIndex !== '0') {
+          kvText.classList.add('visible');
+        } else {
+          kvText.classList.remove('visible');
+        }
       },
     },
   });
@@ -210,12 +221,14 @@ window.addEventListener('load', () => {
 
   // Client
   let opacityInterval;
+  let blinkArr = []; // 깜빡이 넣을 친구
 
   function client() {
     const clientContainer = document.querySelector('.client__img-container');
-    const clientBox = 4;
-    const clientItem = 5;
+    const clientBox = 4; // pc버전 박스 수
+    const clientItem = 5; // 각 박스에 넣을 이미지 수
 
+    // 이미지 데이터 배열
     const imgData = [
       { src: '/bstones/images/client_hyundai.png', alt: '현대로고' },
       { src: '/bstones/images/client_samsung.png', alt: '삼성로고' },
@@ -239,14 +252,16 @@ window.addEventListener('load', () => {
       { src: '/bstones/images/client_converse.png', alt: '컨버스로고' },
     ];
 
-    // 기존 초기화
+    // 기존 초기화함
     clientContainer.innerHTML = '';
 
+    // pc는 박스생성하고 클래스 추가
     if (isMobile() === 'pc') {
       for (let i = 0; i < clientBox; i += 1) {
         const box = document.createElement('div');
         box.classList.add('client__box');
 
+        // 특정박스에 추가클래스 넣음
         if (i === 0 || i === 3) {
           box.classList.add('gap20');
         } else if (i === 1 || i === 2) {
@@ -257,25 +272,50 @@ window.addEventListener('load', () => {
       }
     }
 
+    // 생성된 박스 배열로 저장함
     const boxes = Array.from(document.querySelectorAll('.client__box'));
 
+    // 이미지 생성 및 박스에 넣음
     imgData.forEach((arr, index) => {
       const imgEl = document.createElement('img');
       imgEl.src = arr.src;
       imgEl.setAttribute('alt', arr.alt);
       imgEl.classList.add('client__img');
+
+      // 모바일은 이미지를 컨테이너에 바로 넣음
       if (isMobile() === 'mo') {
         clientContainer.appendChild(imgEl);
       } else {
+        // pc는 각 박스에 이미지를 나눠서 넣음
         const boxIndex = Math.floor(index / clientItem);
         boxes[boxIndex].appendChild(imgEl);
       }
     });
 
+    // 기존 깜빡이 제거(리사이즈)
+    if (opacityInterval) {
+      clearInterval(opacityInterval);
+    }
+
+    // 리사이즈 후 이전 깜빡이 상태로
+    setTimeout(() => {
+      const allImages = Array.from(document.querySelectorAll('.client__img'));
+      blinkArr.forEach((index) => {
+        if (allImages[index]) {
+          allImages[index].classList.add('blink');
+        }
+      });
+    }, 0);
+
+    // 깜빡이
     const toggleOpacity = () => {
       const allImages = Array.from(document.querySelectorAll('.client__img'));
       allImages.forEach((image) => image.classList.remove('blink'));
 
+      // 깜빡이 초기화
+      blinkArr = [];
+
+      // 5개 랜덤으로 클래스추가
       const selectBlink = Array.from(
         { length: allImages.length },
         (_, index) => index,
@@ -283,12 +323,11 @@ window.addEventListener('load', () => {
         .sort(() => 0.5 - Math.random())
         .slice(0, 5);
 
-      selectBlink.forEach((index) => allImages[index].classList.add('blink'));
+      selectBlink.forEach((index) => {
+        allImages[index].classList.add('blink');
+        blinkArr.push(index); // 깜빡이 저장
+      });
     };
-
-    if (opacityInterval) {
-      clearInterval(opacityInterval);
-    }
 
     opacityInterval = setInterval(toggleOpacity, 1000);
   }
@@ -305,6 +344,7 @@ window.addEventListener('load', () => {
   }
   // Client
 
+  updateSlide(mySwiper);
   updateProgressBar(swiper);
   client();
   addResizeEvt();
