@@ -34,15 +34,15 @@ window.addEventListener('load', () => {
           <p class="portfolio-swiper__title pc-mb-25 mo-mb-35 fade-in-up fade-in-up--01">${data.title.replace('<br>', '')}</p>
           <dl class="portfolio-swiper__desc en">
             <div class="portfolio-swiper__cont fade-in-up fade-in-up--02">
-              <dt class="portfolio-swiper__info">Date:</dt>
+              <dt class="portfolio-swiper__info">Date :&nbsp;</dt>
               <dd class="portfolio-swiper__info">${data.date}</dd>
             </div>
             <div class="portfolio-swiper__cont fade-in-up fade-in-up--03">
-              <dt class="portfolio-swiper__info">Brand:</dt>
+              <dt class="portfolio-swiper__info">Brand :&nbsp;</dt>
               <dd class="portfolio-swiper__info">${data.brand}</dd>
             </div>
             <div class="portfolio-swiper__cont fade-in-up fade-in-up--04">
-              <dt class="portfolio-swiper__info">Type:</dt>
+              <dt class="portfolio-swiper__info">Type :&nbsp;</dt>
               <dd class="portfolio-swiper__info">${category.replace(/^[a-z]/, (char) => char.toUpperCase())}</dd>
             </div>
           </dl>
@@ -142,6 +142,7 @@ window.addEventListener('load', () => {
         setSlideStyle(mySwiper, 1);
         updateSlide(this);
         const kvText = document.querySelector('.kv__text');
+        // loop 안할꺼면 바꿔야됨
         const slideIndex = selectSlide(this).currentSlide.getAttribute(
           'data-swiper-slide-index',
         );
@@ -228,28 +229,28 @@ window.addEventListener('load', () => {
     const clientBox = 4; // pc버전 박스 수
     const clientItem = 5; // 각 박스에 넣을 이미지 수
 
-    // 이미지 데이터 배열
+    // 이미지 데이터 배열 (이미지경로는 어떻게 들어가는거임?)
     const imgData = [
-      { src: '/bstones/images/client_hyundai.png', alt: '현대로고' },
-      { src: '/bstones/images/client_samsung.png', alt: '삼성로고' },
-      { src: '/bstones/images/client_kia.png', alt: '기아로고' },
-      { src: '/bstones/images/client_cheil.png', alt: '제일로고' },
-      { src: '/bstones/images/client_amore.png', alt: '아모레퍼시픽로고' },
-      { src: '/bstones/images/client_ahnlab.png', alt: '안랩로고' },
-      { src: '/bstones/images/client_sm.png', alt: 'sm로고' },
-      { src: '/bstones/images/client_canon.png', alt: '캐논로고' },
-      { src: '/bstones/images/client_skt.png', alt: 'skt로고' },
-      { src: '/bstones/images/client_ptk.png', alt: 'ptk로고' },
-      { src: '/bstones/images/client_skp.png', alt: 'skp로고' },
-      { src: '/bstones/images/client_samyang.png', alt: '삼양로고' },
-      { src: '/bstones/images/client_yuhan.png', alt: '유한킴벌리로고' },
-      { src: '/bstones/images/client_hanwha.png', alt: '한화로고' },
-      { src: '/bstones/images/client_redbull.png', alt: '레드불로고' },
-      { src: '/bstones/images/client_cj.png', alt: 'cj푸드빌로고' },
-      { src: '/bstones/images/client_dongsuh.png', alt: '동서식품로고' },
-      { src: '/bstones/images/client_donga.png', alt: '동아제약로고' },
-      { src: '/bstones/images/client_bc.png', alt: 'bc카드로고' },
-      { src: '/bstones/images/client_converse.png', alt: '컨버스로고' },
+      { src: '/bstones/images/client_hyundai.png', alt: '현대 로고' },
+      { src: '/bstones/images/client_samsung.png', alt: '삼성 로고' },
+      { src: '/bstones/images/client_kia.png', alt: '기아 로고' },
+      { src: '/bstones/images/client_cheil.png', alt: '제일 로고' },
+      { src: '/bstones/images/client_amore.png', alt: '아모레퍼시픽 로고' },
+      { src: '/bstones/images/client_ahnlab.png', alt: '안랩 로고' },
+      { src: '/bstones/images/client_sm.png', alt: 'sm 로고' },
+      { src: '/bstones/images/client_canon.png', alt: '캐논 로고' },
+      { src: '/bstones/images/client_skt.png', alt: 'skt 로고' },
+      { src: '/bstones/images/client_ptk.png', alt: 'ptk 로고' },
+      { src: '/bstones/images/client_skp.png', alt: 'skp 로고' },
+      { src: '/bstones/images/client_samyang.png', alt: '삼양 로고' },
+      { src: '/bstones/images/client_yuhan.png', alt: '유한킴벌리 로고' },
+      { src: '/bstones/images/client_hanwha.png', alt: '한화 로고' },
+      { src: '/bstones/images/client_redbull.png', alt: '레드불 로고' },
+      { src: '/bstones/images/client_cj.png', alt: 'cj푸드빌 로고' },
+      { src: '/bstones/images/client_dongsuh.png', alt: '동서식품 로고' },
+      { src: '/bstones/images/client_donga.png', alt: '동아제약 로고' },
+      { src: '/bstones/images/client_bc.png', alt: 'bc카드 로고' },
+      { src: '/bstones/images/client_converse.png', alt: '컨버스 로고' },
     ];
 
     // 기존 초기화함
