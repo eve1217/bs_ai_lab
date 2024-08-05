@@ -495,12 +495,12 @@
       @include vw-mo(max-width, 720);
       .slide-box{
         // &-03::before, &-03::after, &-04::before, &-05::before{display: none;}
-        &-03::before{@include vw-mo(top, 423); @include vw-mo(left, 205); @include vw-mo(width,344); @include vw-mo(height, 488); background: url('/images/kv_03_imgD_mo.png') no-repeat center/contain;}
-        &-03::after{@include vw-mo(top, 279); right:0; @include vw-mo(width,207); @include vw-mo(height, 218); background: url('/images/kv_03_imgA_mo.png') no-repeat center/contain;}
+        &-03::before{@include vw-mo(top, 417); @include vw-mo(left, 100); @include vw-mo(width,344); @include vw-mo(height, 488); background: url('/images/kv_03_imgD_mo_v1.png') no-repeat center/contain;}
+        &-03::after{@include vw-mo(top, 279); @include vw-mo(right, 33); @include vw-mo(width,278); @include vw-mo(height, 218); background: url('/images/kv_03_imgA_mo_v1.png') no-repeat center/contain;}
         
-        &-04::before{@include vw-mo(bottom, 45); left:0; @include vw-mo(width,498); @include vw-mo(height, 372); background: url('/images/kv_04_imgA_mo.png') no-repeat center/contain;}
+        &-04::before{@include vw-mo(bottom, 45); @include vw-mo(left, -46); @include vw-mo(width,498); @include vw-mo(height, 372); background: url('/images/kv_04_imgA_mo_v1.png') no-repeat center/contain;}
         
-        &-05::before{@include vw-mo(bottom, 109); @include vw-mo(right, 390); @include vw-mo(width,282); @include vw-mo(height, 249); background: url('/images/kv_05_imgA_mo.png') no-repeat center/contain;}
+        &-05::before{@include vw-mo(bottom, 110); @include vw-mo(right, 390); @include vw-mo(width,282); @include vw-mo(height, 249); background: url('/images/kv_05_imgA_mo_v1.png') no-repeat center/contain;}
       }
       .video_box{
         @include vw-mo(width, 720);
