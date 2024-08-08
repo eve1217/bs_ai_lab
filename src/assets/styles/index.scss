@@ -49,21 +49,22 @@
     .slide-box{
       position: relative;
       transition:transform .8s ease-out;
-      &-03::before{z-index: 1; content: ''; position: absolute; @include vw-max(top, 284); @include vw-max(left, 903); @include vw-max(width,344); @include vw-max(height, 488); background: url('/images/kv_03_imgD_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion 1s linear 0s infinite alternate; margin-top: 0;}
-      &-03::after{z-index: 1; content: ''; position: absolute; @include vw-max(top, 150); @include vw-max(right, 288); @include vw-max(width,278); @include vw-max(height, 218); background: url('/images/kv_03_imgA_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion 1s linear 0s infinite alternate; margin-top: 0;}
+      // &-03::before{z-index: 1; content: ''; position: absolute; @include vw-max(top, 284); @include vw-max(left, 903); @include vw-max(width,344); @include vw-max(height, 488); background: url('/images/kv_03_imgD_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion 1s linear 0s infinite alternate; margin-top: 0;}
+      // &-03::after{z-index: 1; content: ''; position: absolute; @include vw-max(top, 150); @include vw-max(right, 288); @include vw-max(width,278); @include vw-max(height, 218); background: url('/images/kv_03_imgA_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion 1s linear 0s infinite alternate; margin-top: 0;}
       
-      &-04::before{z-index: 1; content: ''; position: absolute; @include vw-max(bottom, 10); @include vw-max(left, 530); @include vw-max(width,549); @include vw-max(height, 372); background: url('/images/kv_04_imgA_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion-bottom 0.6s linear 0s infinite alternate; margin-bottom: 0;}
+      // &-04::before{z-index: 1; content: ''; position: absolute; @include vw-max(bottom, 10); @include vw-max(left, 530); @include vw-max(width,549); @include vw-max(height, 372); background: url('/images/kv_04_imgA_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion-bottom 0.6s linear 0s infinite alternate; margin-bottom: 0;}
       
-      &-05::before{z-index: 1; content: ''; position: absolute; @include vw-max(bottom, 175); @include vw-max(right, 130); @include vw-max(width,177); @include vw-max(height, 227); background: url('/images/kv_05_imgA_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion-bottom 0.6s linear 0s infinite alternate; margin-bottom: 0;}
+      // &-05::before{z-index: 1; content: ''; position: absolute; @include vw-max(bottom, 175); @include vw-max(right, 130); @include vw-max(width,177); @include vw-max(height, 227); background: url('/images/kv_05_imgA_pc.png') no-repeat center/contain; background-size: 100% 100%; animation: motion-bottom 0.6s linear 0s infinite alternate; margin-bottom: 0;}
     }
     .video_box{
       @include vw-max(width, 1920); height: auto;
       .kv_video{@include vw-max(width, 1920);}
     }
     .text{
-      &-box{position: absolute; @include vw-max(top, 539); @include vw-max(left, 339);}
-      &-main{@include vw-max(font-size, 48); @include vw-max(line-height, 60); font-weight: 600;}
+      &-box{position: absolute; @include vw-max(top, 460); @include vw-max(left, 339);}
+      &-main{@include vw-max(margin-bottom,25); @include vw-max(font-size, 48); @include vw-max(line-height, 60); font-weight: 600;}
       &-bold{color: #f84525;}
+      &-title {@include vw-max(font-size,22); font-weight:300; @include vw-max(letter-spacing,-.25); transition:opacity .4s;}
     }
 
     // 스와이퍼 네비
@@ -495,12 +496,12 @@
       @include vw-mo(max-width, 720);
       .slide-box{
         // &-03::before, &-03::after, &-04::before, &-05::before{display: none;}
-        &-03::before{@include vw-mo(top, 475); @include vw-mo(left, 225); @include vw-mo(width,344); @include vw-mo(height, 488); background: url('/images/kv_03_imgD_mo_v1.png') no-repeat center/contain;}
-        &-03::after{@include vw-mo(top, 275); @include vw-mo(right, 33); @include vw-mo(width,278); @include vw-mo(height, 218); background: url('/images/kv_03_imgA_mo_v2.png') no-repeat center/contain;}
+        // &-03::before{@include vw-mo(top, 475); @include vw-mo(left, 225); @include vw-mo(width,344); @include vw-mo(height, 488); background: url('/images/kv_03_imgD_mo_v1.png') no-repeat center/contain;}
+        // &-03::after{@include vw-mo(top, 275); @include vw-mo(right, 33); @include vw-mo(width,278); @include vw-mo(height, 218); background: url('/images/kv_03_imgA_mo_v2.png') no-repeat center/contain;}
         
-        &-04::before{@include vw-mo(bottom, 20); @include vw-mo(left, 145); @include vw-mo(width,420); @include vw-mo(height, 315); background: url('/images/kv_04_imgA_mo_v2.png') no-repeat center/contain;}
+        // &-04::before{@include vw-mo(bottom, 20); @include vw-mo(left, 145); @include vw-mo(width,420); @include vw-mo(height, 315); background: url('/images/kv_04_imgA_mo_v2.png') no-repeat center/contain;}
         
-        &-05::before{@include vw-mo(bottom, 110); @include vw-mo(right, 420); @include vw-mo(width,282); @include vw-mo(height, 249); background: url('/images/kv_05_imgA_mo_v2.png') no-repeat center/contain;}
+        // &-05::before{@include vw-mo(bottom, 110); @include vw-mo(right, 420); @include vw-mo(width,282); @include vw-mo(height, 249); background: url('/images/kv_05_imgA_mo_v2.png') no-repeat center/contain;}
       }
       .video_box{
         @include vw-mo(width, 720);
@@ -518,7 +519,8 @@
 
       .text{
         &-box{position: absolute; @include vw-mo(top, 210); @include vw-mo(left, 48);}
-        &-main{@include vw-mo(font-size, 60); @include vw-mo(line-height, 72);}
+        &-main{@include vw-mo(margin-bottom,355); @include vw-mo(font-size, 60); @include vw-mo(line-height, 72);}
+        &-title {@include vw-mo(font-size,32); font-weight:400; @include vw-mo(letter-spacing,-.25);}
       }
 
       // 스와이퍼 네비

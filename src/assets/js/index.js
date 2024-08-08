@@ -113,6 +113,29 @@ window.addEventListener('load', () => {
     });
   }
 
+  // kv 프로젝트명 바꿈
+  function changeTitle(swiper) {
+    const currentSlideIndex = swiper.realIndex;
+    const textTitleEl = document.querySelector('.text-title');
+
+    const slideTitles = [
+      '',
+      '삼성닷컴 글로벌 <br class="m-show" />사운드바 시뮬레이션',
+      'AhnLab Mall <br class="m-show" />사이트 리뉴얼',
+      '삼성닷컴 <br class="m-show" />가전 PDP 운영',
+      'KTB 투자증권 <br class="m-show" />웹 사이트 리뉴얼',
+      '삼성전자 <br class="m-show" />갤럭시 스튜디오',
+    ];
+
+    textTitleEl.innerHTML = slideTitles[currentSlideIndex] || '';
+  }
+
+  // 클래스 opacity 스타일 바꿈
+  function changeOpacity(className, opacityValue) {
+    const el = document.querySelector(`.${className}`);
+    el.style.opacity = opacityValue;
+  }
+
   const mySwiper = new Swiper('.swiper-container', {
     slidesPerView: 'auto',
     speed: 800,
@@ -137,19 +160,22 @@ window.addEventListener('load', () => {
         setSlideStyle(mySwiper, 0.8);
         pauseNotVisible(mySwiper);
         updateSlide(this);
+        changeOpacity('text-title', 0);
+
+        const slideIndex = this.realIndex;
+        if (slideIndex === 0) {
+          changeOpacity('kv__text', 0);
+        }
       },
       slideChangeTransitionEnd() {
         setSlideStyle(mySwiper, 1);
         updateSlide(this);
-        const kvText = document.querySelector('.kv__text');
-        // loop 안할꺼면 바꿔야됨
-        const slideIndex = selectSlide(this).currentSlide.getAttribute(
-          'data-swiper-slide-index',
-        );
-        if (slideIndex !== '0') {
-          kvText.classList.add('visible');
-        } else {
-          kvText.classList.remove('visible');
+        changeTitle(this);
+        changeOpacity('text-title', 1);
+
+        const slideIndex = this.realIndex;
+        if (slideIndex !== 0) {
+          changeOpacity('kv__text', 1);
         }
       },
     },
