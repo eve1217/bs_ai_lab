@@ -136,7 +136,7 @@ window.addEventListener('load', () => {
     el.style.opacity = opacityValue;
   }
 
-  const mySwiper = new Swiper('.swiper-container', {
+  const kvSwiper = new Swiper('.swiper-container#kvSwiper', {
     slidesPerView: 'auto',
     speed: 800,
     loop: true,
@@ -157,8 +157,8 @@ window.addEventListener('load', () => {
     resizeObserver: true,
     on: {
       slideChangeTransitionStart() {
-        setSlideStyle(mySwiper, 0.8);
-        pauseNotVisible(mySwiper);
+        setSlideStyle(kvSwiper, 0.8);
+        pauseNotVisible(kvSwiper);
         updateSlide(this);
         changeOpacity('text-title', 0);
 
@@ -168,7 +168,7 @@ window.addEventListener('load', () => {
         }
       },
       slideChangeTransitionEnd() {
-        setSlideStyle(mySwiper, 1);
+        setSlideStyle(kvSwiper, 1);
         updateSlide(this);
         changeTitle(this);
         changeOpacity('text-title', 1);
@@ -371,7 +371,7 @@ window.addEventListener('load', () => {
   }
   // Client
 
-  updateSlide(mySwiper);
+  updateSlide(kvSwiper);
   updateProgressBar(swiper);
   client();
   addResizeEvt();
