@@ -15,8 +15,8 @@
     backdrop-filter: blur(2px);
     transition: opacity 0.3s ease-in;
     z-index: 50;
-    @include vw-max(height, 200);
-    @include vw-max(padding, 0 80 0 89);
+    @include vw-max(height, 160);
+    @include vw-max(padding, 80 80 40 89);
 
     &.js-fixed {
       position: fixed;
