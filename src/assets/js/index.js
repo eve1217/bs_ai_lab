@@ -301,11 +301,12 @@ window.addEventListener('load', () => {
 
     // 생성된 박스 배열로 저장함
     const boxes = Array.from(document.querySelectorAll('.client__box'));
+    const rootPath = window.location.pathname;
 
     // 이미지 생성 및 박스에 넣음
     imgData.forEach((arr, index) => {
       const imgEl = document.createElement('img');
-      imgEl.src = window.location.pathname + arr.src;
+      imgEl.src = rootPath + arr.src;
       imgEl.setAttribute('alt', arr.alt);
       imgEl.classList.add('client__img');
 
