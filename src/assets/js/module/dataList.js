@@ -1,6 +1,11 @@
 const dataList = {"result":[
+  {"id":"2412","title":"휴롬 날것 캠페인","date":"2024.12","brand":"휴롬","category":"PROMOTION","overview":"휴롬 신제품 및 이효리 TVC 런칭에 맞춰 날것 캠페인 소개와 함께 참여 이벤트로 구성"},
+  {"id":"2410","title":"써모스 루틴팩 프로모션","date":"2024.10","brand":"써모스","category":"PROMOTION","overview":"써모스 신제품 출시와 함께 진행된 루틴 캠페인. <br/>캠페인 소개와 참여 이벤트 제작 및 루틴팩 굿즈 제작"},
+  {"id":"240701","title":"줏대있게 WRITE NOW","date":"2024.07","brand":"삼성전자","category":"PROMOTION","overview":"스트레이트 키즈 창빈의 MV 가사 응모 및 참여자가 본인 사진과 가사를 넣는 MV를 만들 수 있는 기능 제공"},
+  {"id":"240702","title":"22세기 유물전","date":"2024.07","brand":"프로쉬","category":"PROMOTION","overview":"친환경 세제 브랜드 프로쉬의 환경 캠페인의 일환으로 쓰레기가 유물이 되는 미래를 그린 22세기 유물전 웹사이트 제작. <br/>웹사이트 내에서 김혜자 배우의 음성으로 듣는 도슨트 기능 제공"},
   {"id":"2405","title":"AhnLab Mall <br>사이트 리뉴얼","date":"2024.05","brand":"AhnLab","category":"RENEWAL PROJECT","overview":"안랩몰 웹사이트 전면 개편 프로젝트: <br class=\"m-show\">신규 Framework 전환, 커머스 플랫폼으로 <br>역량 강화, UXUI/마케팅 강화"},
   {"id":"2402","title":"갤럭시 선물상담소 <br>프로모션","date":"2024.02","brand":"삼성전자","category":"PROMOTION","overview":"삼성닷컴에서 운영하고 있는 <br class=\"m-show\">참여형/고지형 프로모션 페이지를 월마다 <br class=\"m-show\">제작 및 운영."},
+  {"id":"2401","title":"WE DREAM S24 HOURS","date":"2024.01","brand":"삼성전자","category":"PROMOTION","overview":"김창완과 스트레이트 키즈 창빈의 콜라보 음반을 위한 고민 상담 프로젝트로 고민을 남기고 상담 받을 수 있는 프로모션 진행. <br/>웹사이트 제작과 함께 창완X 창빈의 포스트카드 굿즈 제작"},
   {"id":"2309","title":"스파크플러스 <br>사이트 리뉴얼","date":"2023.09","brand":"스파크플러스","category":"RENEWAL PROJECT","overview":"공유오피스 사이트 UIUX 개선 프로젝트로 <br class=\"m-show\">기존의 불편하고 텍스트 위주의 UI를 걷어내고, <br class=\"m-show\">사진 등 미디어를 다수 활용한 브로셔 느낌의 <br class=\"m-show\">사이트로 신규 구축하였으며, API를 활용한 <br class=\"m-show\">매장 지도 서비스로 쉬운 UI 제공."},
   {"id":"230301","title":"THE iD 삼성카드 <br>프로모션","date":"2023.03","brand":"삼성카드","category":"PROMOTION","overview":"삼성카드에서 신규 런칭한 THE iD 카드 <br class=\"m-show\">프로모션으로 프리미엄 라인 카드에 어울리는 <br class=\"m-show\">블랙&화이트의 조합으로 품격 있게  제작."},
   {"id":"230302","title":"2023 미래에서 온 리퀘스트 <br>마이크로 사이트","date":"2023.03","brand":"SK","category":"PROMOTION","overview":"연간 2회 모바일 플래그십 제품이 <br class=\"m-show\">출시(언팩)될 때는 보안룸에서 별도 프로젝트로 <br class=\"m-show\">프로모션 제작 참여."},
