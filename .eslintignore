@@ -1,0 +1,7 @@
+.vscode
+dist
+node_modules
+vite.config.ts
+vite.config.js
+postcss.config.js
+dataList.js

@@ -1,0 +1,99 @@
+.js-scroll {
+  overflow: hidden;
+  width: 100%;
+
+  .scroll-wrapper {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-inner {
+    display: block;
+    position: relative;
+
+    @for $i from 1 through 5 {
+      &--step0#{$i} {
+        transition-delay: $i * 0.3s !important;
+      }
+    }
+
+    &--up {
+      opacity: 0;
+      transform: translateY(100%);
+      transition: transform 0.7s ease-in-out, opacity 0.5s ease-in;
+    }
+    &--fade {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: transform 0.5s ease-in-out, opacity 0.7s ease-in; 
+    }
+    
+  }
+
+  .scroll-border {
+    width: 100%;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #60605f;
+      transition: width .7s linear;
+    }
+
+    &--both {
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0; 
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #60605f;
+        transition: width .7s linear;
+        transition-delay: 1.2s;
+      }
+    }
+
+    @for $i from 1 through 5 {
+      &--step0#{$i} {
+        &::before {
+          transition-delay: $i * 0.3s !important;
+        }
+      }
+    }
+  }
+
+  &.js-active {
+    .scroll-inner {
+      &--up {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      &--fade {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scroll-border {
+      &::before {
+        width: 100%;
+      }
+
+      &--both {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+  }
+}

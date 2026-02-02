@@ -1,0 +1,70 @@
+// reset
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: 'AppleSDGothicNeo', sans-serif;
+  // overflow: auto;
+}
+
+// html {
+//   height: 100%;
+// }
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+picture {
+  display: block;
+  width: 100%;
+}
+picture img,
+picture source {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+}
+
+em {
+  font-style: normal;
+}
+
+p,
+ul,
+dl,
+dd {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+i {
+  display: block;
+  font-style: normal;
+}

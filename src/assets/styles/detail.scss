@@ -1,0 +1,127 @@
+@import './common';
+@import './animation';
+
+.bs-detail {
+  .detail {
+    &__title {
+      font-family: $kr;
+      font-weight: 300;
+      letter-spacing: -.035em;
+      @include vw-max(margin-left, -5);
+      @include vw-max(font-size, 110);
+      @include vw-max(line-height, 135);
+
+      .bespoke {
+        display: block;
+        font-family: $en;
+        font-weight: 200;
+        letter-spacing: 0;
+        @include vw-max(font-size, 130);
+        @include vw-max(line-height, 94);
+      }
+
+      .bespoke strong {
+        font-weight: 600;
+      }
+    }
+
+    &__info {
+      display: flex;
+      justify-content: flex-start;
+
+      dt {
+        font-family: $en;
+        color: $color-red;
+        font-weight: 500;
+        @include vw-max(padding-right, 25);
+        @include vw-max(font-size, 22);
+        @include vw-max(line-height, 22);
+      }
+
+      dd{
+        font-family: $kr;
+        color: $color-white;
+        font-weight: 400;
+        letter-spacing: 0;
+        opacity: .9;
+        @include vw-max(width, 245);
+        @include vw-max(font-size, 22);
+        @include vw-max(line-height, 22);
+      
+        &--space {
+          letter-spacing: -.07em;
+        }
+      }
+    }
+
+    &__sub {
+      font-family: $en;
+      font-weight: 500;
+      color: $color-red;
+      @include vw-max(margin-left, -3);
+      @include vw-max(font-size, 60);
+      @include vw-max(line-height, 44);
+    }
+
+    &_desc {
+      font-family: $kr;
+      font-weight: 300;
+      color: $color-gray;
+      letter-spacing: -.036em;
+      @include vw-max(font-size, 22);
+      @include vw-max(line-height, 38);
+    }
+  }
+}
+
+@media all and (max-width:768px) {
+  .bs-detail {
+    .detail{
+      &__title {
+        letter-spacing: -1.4rem;
+        @include vw-mo(margin-left, 0);
+        @include vw-mo(font-size, 66);
+        @include vw-mo(line-height, 85);
+  
+        .bespoke {
+          @include vw-mo(font-size, 96);
+          @include vw-mo(line-height, 68);
+        }
+      }
+  
+      &__info {
+        display: flex;
+        flex-wrap: wrap;
+        dt {
+          @include vw-mo(padding-right, 0);
+          @include vw-mo(width, 175);
+          @include vw-mo(font-size, 40);
+          @include vw-mo(line-height, 60);
+        }
+  
+        dd{
+          @include vw-mo(width, 440);
+          @include vw-mo(font-size, 36);
+          @include vw-mo(line-height, 60);
+        }
+      }
+      
+      &__sub {
+        @include vw-mo(font-size, 60);
+        @include vw-mo(line-height, 44);
+      }
+  
+      &_desc {
+        letter-spacing: -.05em;
+        @include vw-mo(font-size, 32);
+        @include vw-mo(line-height, 48);
+      }
+
+      &__overview {
+        margin-left: auto;
+        margin-right: auto;
+        @include vw-mo(width, 624);
+      }
+    }    
+  }
+}

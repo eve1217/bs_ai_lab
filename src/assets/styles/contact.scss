@@ -1,0 +1,76 @@
+@import './common';
+@import './animation';
+
+.bs-contact {
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include vw-max(gap, 80 224);
+
+    &__division {
+      @include vw-max(width, 505);
+
+      &:nth-of-type(3) {
+        margin-left: auto;
+      }
+    }
+
+    &__sub {
+      display: block;
+      font-family: $en;
+      font-weight: 500;
+      line-height: 1;
+      color: $color-red;
+      @include vw-max(font-size, 30);
+    }
+
+    &__desc {
+      display: block;
+      text-transform: uppercase;
+      line-height: 1.3;
+      color: $color-white;
+      @include vw-max(font-size, 22);
+
+      &--kr {
+        @include vw-max(letter-spacing, -2);
+      }
+    }
+
+    a {
+      font-weight: 300;
+      color: $color-white;
+    }
+  }
+
+  .map {
+    @include vw-max(height, 700);
+  }
+}
+
+
+@media all and (max-width:768px) {
+  .bs-contact {
+    .info {
+      display: flex;
+      flex-direction: column;
+      @include vw-mo(gap, 52);
+
+      &__division {
+        width: 100%;
+      }
+
+      &__sub {
+        @include vw-mo(font-size, 40);
+      }
+
+      &__desc {
+        @include vw-mo(font-size, 32);
+      }
+    }
+
+    .map {
+      @include vw-mo(height, 600);
+    }
+  }
+}
