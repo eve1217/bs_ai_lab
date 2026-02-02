@@ -1,0 +1,41 @@
+@import './common';
+@import './animation';
+@import './banner';
+
+.bs-ai-lab {
+  .page {
+    .page-title {
+      font-family: $en;
+      font-weight: 600;
+      color: $color-white;
+      @include vw-max(font-size, 130);
+      @include vw-max(line-height, 142);
+    }
+
+    &__desc {
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      opacity: 0.9;
+      @include vw-max(font-size, 22);
+      @include vw-max(line-height, 38);
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .bs-ai-lab {
+    .page {
+      @include vw-mo(width, 624);
+
+      .page-title {
+        @include vw-mo(font-size, 96);
+        @include vw-mo(line-height, 112);
+      }
+
+      &__desc {
+        @include vw-mo(font-size, 32);
+        @include vw-mo(line-height, 48);
+      }
+    }
+  }
+}

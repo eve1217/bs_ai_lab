@@ -1,0 +1,87 @@
+.sec_footer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  @include vw-pc(padding, 38 0);
+  @include vw-pc(margin, 0 80);
+  border-top: 1px solid #60605f;
+
+  .footer {
+    &__ego {
+      display: flex;
+      align-items: center;
+    }
+
+    &__list {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__logo {
+      @include vw-pc(width, 135);
+      position: relative;
+    }
+
+    &__copyright {
+      @include vw-pc(margin-left, 40);
+      @include vw-pc(font-size, 14);
+      color: #bbb;
+    }
+
+    &__contact {
+      @include vw-pc(font-size, 20);
+      color: #f84525;
+    }
+    
+    &__tel {
+      @include vw-pc(margin-left, 40);
+      @include vw-pc(font-size, 20);
+      color: #bbb;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sec_footer {
+    @include vw-mo(height, 141);
+    align-items: baseline;
+    @include vw-mo(padding, 40 48 0 48);
+    margin: 0;
+    border-top: 2px solid #60605f;
+
+    .footer {
+      &__list {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      &__logo {
+        width: 0;
+      }
+
+      &__copyright {
+        position: absolute;
+        @include vw-mo(right, 45);
+        @include vw-mo(bottom, 41);
+        display: block;
+        margin: 0;
+        @include vw-mo(font-size, 18);
+      }
+
+      &__contact {
+        @include vw-mo(font-size, 24);
+        @include vw-mo(line-height, 18);
+          color: #f84525;
+      }
+    
+      &__tel {
+        margin: 0;
+        @include vw-mo(font-size, 25);
+        @include vw-mo(line-height, 18);
+        @include vw-mo(letter-spacing, -0.4);
+      }
+    }
+  }
+}

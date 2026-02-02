@@ -1,0 +1,127 @@
+@import './common';
+@import './animation';
+@import './banner';
+
+.bs-recruit {
+  .title-box {
+    .page-sub {
+      line-height: 1;
+      letter-spacing: 0;
+      color: $color-red;
+      @include vw-max(font-size, 90);
+    }
+
+    .sec-desc {
+      letter-spacing: -.04em;
+    }
+  }
+
+
+  .list {
+    &__item {
+      position: relative;
+      @include vw-max(padding-left, 20);
+      @include vw-max(padding-right, 10);
+    }
+
+    &__link {
+      width: 100%;
+      @include vw-max(height, 105);
+
+      &:hover {
+        .list__txt,
+        .list__desc {
+          color: $color-red;
+        }
+
+        .btn-plus--recruit {
+          transform: translateY(-50%) rotate(90deg);
+
+          &::before,
+          &::after {
+            background-color: $color-red;
+          }
+
+        }
+      }
+    }
+
+    &__txt {
+      line-height: 1;
+      color: $color-white;
+      font-family: $en;
+      font-weight: 500;
+      transition: all .5s;
+      @include vw-max(font-size, 60);
+    }
+
+    &__desc {
+      line-height: 1;
+      color: $color-gray;
+      font-weight: 500;
+      transition: all .5s;
+      @include vw-max(font-size, 22);
+    }
+  }
+
+  .btn-plus--recruit {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @include vw-max(right, 10);
+    @include vw-max(width, 60);
+    @include vw-max(height, 60);
+  }
+}
+
+
+@media all and (max-width:768px) {
+  .bs-recruit {
+    .title-box {
+      .page-sub {
+        @include vw-mo(font-size, 56);
+      }
+    }
+
+    .list {
+      &__item {
+        @include vw-mo(padding-left, 20);
+        @include vw-mo(padding-left, 20);
+      }
+      
+      &__link {
+        position: static;
+        height: auto;
+
+        &:hover {
+          .list__txt,
+          .list__desc {
+            color: $color-white;
+          }
+  
+          .btn-plus--recruit {
+            &::before,
+            &::after {
+              background-color: $color-white;
+            }
+  
+          }
+        }
+      }
+
+      &__txt {
+        @include vw-mo(font-size, 60);
+      }
+
+      &__desc {
+        @include vw-mo(font-size, 32);
+      }
+    }
+
+    .btn-plus--recruit {
+      @include vw-mo(right, 20);
+      @include vw-mo(width, 60);
+      @include vw-mo(height, 60);
+    }
+  }
+}

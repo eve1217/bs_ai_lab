@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="BSTONES | 비스톤스">
+    <meta name="description" content="We make the Next Digital eXperience">
+    {{> metaOg }}
+    <title>BSTONES | 비스톤스 - We make the Next Digital eXperience</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="../assets/styles/portfolio.scss" />
+    {{> googleTagScript }}
+  </head>
+  <body>
+    <div class="wrapper bs-portfolio">
+      {{> header }}
+      <!-- header.html -->
+      <main>
+        <section class="js-scroll pc-pb-190 mo-pb-140">
+          <div class="inner-1240">
+            <h2 class="page-title pc-mt-95 pc-mb-180 mo-pt-70 mo-pb-125 scroll-wrapper">
+              <span class="scroll-inner scroll-inner--up">Portfolio.</span>
+            </h2>
+            <!--// 페이지 타이틀  -->
+            <div class="swiper tab pc-pb-40 mo-pb-40 scroll-inner--fade scroll-inner--step01" id="portfolioTab">
+              <ul class="tab__box swiper-wrapper ">
+                <li class="swiper-slide tab__item">
+                  <a href="javascript:;" class="tab__btn active" data-category="all" title="ALL">ALL</a>
+                </li>
+                <li class="swiper-slide tab__item">
+                  <a href="javascript:;" class="tab__btn" data-category="PROMOTION" title="PROMOTION">Promotion</a>
+                </li>
+                <li class="swiper-slide tab__item">
+                  <a href="javascript:;" class="tab__btn" data-category="MANAGEMENT" title="MANAGEMENT">Management</a>
+                </li>
+                <li class="swiper-slide tab__item">
+                  <a href="javascript:;" class="tab__btn" data-category="DEVELOPMENT" title="DEVELOPMENT">Development</a>
+                </li>
+                <li class="swiper-slide tab__item">
+                  <a href="javascript:;" class="tab__btn" data-category="SNS & BANNER" title="SNS & BANNER">SNS & Banner</a>
+                </li>
+              </ul>
+            </div>
+            <!--// 포트폴리오 탭  -->
+
+            <ul class="list pc-pb-100 mo-pb-80 scroll-inner--fade scroll-inner--step02" id="portfolioList"></ul>
+            <div class="scroll-inner scroll-inner--fade scroll-inner--step03">
+              <a href="javascript:;" class="btn-plus btn-plus--portfolio" id="btnMore"><span class="blind">더보기</span></a>
+            </div>
+
+            <!--// 컨텐츠 -->
+          </div>
+        </section>
+      </main>
+      {{> footer }}
+      <!-- footer.html -->
+    </div>
+
+    <script type="module" src="../assets/js/portfolio.js"></script>
+  </body>
+</html>

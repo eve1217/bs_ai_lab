@@ -1,0 +1,180 @@
+@import './common';
+@import './animation';
+
+.bs-portfolio {
+  .page-title {
+    @include vw-max(text-indent, -10);
+  }
+
+  .tab {
+    @include vw-max(margin-bottom, 40);
+
+    &__box {
+      display: flex; 
+      justify-content: space-between;
+    }
+
+    &__item {
+      width: auto;
+      @include vw-max(height, 50)
+    }
+
+    &__btn {
+      display: block; 
+      height: 100%; 
+      color: #888; 
+      font-weight: 500;
+      text-transform: uppercase;
+      font-family: $en;
+      @include vw-max(border-bottom, 3 solid transparent); 
+      @include vw-max(font-size, 30); 
+      @include vw-max(line-height, 50); 
+  
+      &.active {
+        color: $color-white;
+        @include vw-max(border-bottom, 3 solid $color-red); 
+      }
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+
+  .list {
+      display: flex;
+      flex-wrap: wrap;
+      @include vw-max(gap, 20);
+      
+      &__item {
+        position: relative;
+        @include vw-max(width, 400);
+        @include vw-max(height, 500);
+      }
+    
+      &__link {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        
+        &:hover{
+          &::after{
+            top: 0;
+            opacity: 1;
+          }
+
+          .list__text {
+            top: 0;          
+          }
+        }
+      }    
+  
+      &__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(248, 69, 37, .9);          
+        transition: .4s top ease-out;
+        z-index: 1;
+        @include vw-max(padding, 0 20);
+        @include vw-max(gap, 20);
+      }
+
+      &__title {
+        color: $color-white;  
+        font-weight: 700;
+        text-align: center;
+        word-break: keep-all;
+        @include vw-max(font-size, 42);
+        @include vw-max(font-size, 50); 
+      }
+      
+      &__data {
+        line-height: 1.5;
+        color: $color-white;  
+        font-weight: 400;
+        text-align: center;
+        word-break: keep-all;
+        @include vw-max(font-size, 26); 
+      }
+    }
+
+    .btn-plus--portfolio {
+      margin: 0 auto;
+      @include vw-max(width, 80);
+      @include vw-max(height, 80);
+
+      &::before,
+      &::after {
+        background-color: $color-red;
+      }
+    }
+  }
+
+  @media all and (max-width:768px) {
+    .bs-portfolio {
+      .page-title {
+        @include vw-mo(text-indent, -5);
+      }
+
+      .tab {
+        &__box {
+          justify-content: flex-start;
+        }
+        
+        &__item {
+          @include vw-mo(padding-right, 70);
+          @include vw-mo(height, 59);
+          &:last-child {padding-right: 0;}
+
+        }
+        &__btn {
+          @include vw-mo(border-bottom, 4 solid transparent); 
+          @include vw-mo(font-size, 36); 
+          @include vw-mo(line-height, 59);
+      
+          &.active {
+            @include vw-mo(border-bottom, 4 solid $color-red); 
+          }
+        }
+      }
+
+      .list {
+        @include vw-mo(gap, 24);
+        
+        &__item {
+          @include vw-mo(width, 300);
+          @include vw-mo(height, 370);
+        }
+      
+        &__text {
+          display: none;
+          @include vw-mo(gap, 20);
+        }
+           
+        &__title {
+          @include vw-mo(font-size, 42);
+        }
+
+        &__data {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 90%;
+          @include vw-mo(font-size, 26); 
+        }        
+      }
+
+      .btn-plus--portfolio {
+        @include vw-mo(width, 140);
+        @include vw-mo(height, 140);
+      }
+    }
+  }

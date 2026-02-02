@@ -1,0 +1,14 @@
+.sec_banner {
+  width: 100%;
+  @include vw-max(margin-bottom, 4);
+}
+
+@media screen and (max-width: 768px) {
+  .sec_banner {
+    margin: 0;
+
+    .inner-1240 {
+      min-width: 100%;
+    }
+  }
+}

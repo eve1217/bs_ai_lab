@@ -1,0 +1,221 @@
+@import './common';
+@import './animation';
+@import './banner';
+
+.bs-portfolio {
+  .page-title {
+    @include vw-max(text-indent, -10);
+  }
+
+  .tab {
+    @include vw-max(margin-bottom, 145);
+
+    &__box {
+      display: flex; 
+      justify-content: space-between;
+    }
+
+    &__item {
+      width: auto;
+      @include vw-max(height, 50)
+    }
+
+    &__btn {
+      display: block; 
+      height: 100%; 
+      color: #888; 
+      font-weight: 500;
+      text-transform: uppercase;
+      font-family: $en;
+      @include vw-max(border-bottom, 3 solid transparent); 
+      @include vw-max(font-size, 30); 
+      @include vw-max(line-height, 50); 
+  
+      &.active {
+        color: $color-white;
+        @include vw-max(border-bottom, 3 solid $color-red); 
+      }
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+
+  .list {
+      display: grid;
+      @include vw-max(column-gap, 80);
+      @include vw-max(row-gap, 110);
+      @include vw-max(grid-template-columns, 580 580);
+      
+      &__item {
+        position: relative;
+        @include vw-max(width, 580);
+        
+        &:nth-child(2) {
+          @include vw-max(margin-top, 200);
+        }
+
+        &:nth-child(2n - 1) {
+          @include vw-max(margin-top, -200)
+        }
+        &:nth-child(1) {
+          margin-top: 0;
+        }
+      }
+    
+      &__img {
+        overflow: hidden;
+        @include vw-max(height, 580);
+        @include vw-max(border-radius, 60);        
+
+        img {
+          transition: transform 0.7s ease-in-out;
+          &:hover {
+            transform: scale(1.07);
+          }
+        }
+      }
+
+      &__link {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        
+        &:hover{
+          &::after{
+            top: 0;
+            opacity: 1;
+          }
+
+          .list__text {
+            top: 0;          
+          }
+        }
+      }    
+  
+      &__text {
+        display: block;
+        @include vw-max(margin-top, 47);
+        @include vw-max(padding, 0 20);
+      }
+
+      &__title {
+        font-weight: 700;
+        text-align: left;
+        word-break: keep-all;
+        color: $color-gray;
+        @include vw-max(font-size, 28);
+        @include vw-max(line-height, 52); 
+      }
+      
+      &__data {
+        line-height: 1.5;
+        color: $color-gray;  
+        font-weight: 200;
+        text-align: left;
+        word-break: keep-all;
+        @include vw-max(font-size, 28); 
+        @include vw-max(line-height, 52); 
+      }
+    }
+
+    .btn-plus--portfolio {
+      margin: 0 auto;
+      @include vw-max(width, 80);
+      @include vw-max(height, 80);
+
+      &::before,
+      &::after {
+        background-color: $color-red;
+      }
+    }
+  }
+
+  @media all and (max-width:768px) {
+    .bs-portfolio {
+      .page-title {
+        @include vw-mo(text-indent, -5);
+        @include vw-mo(margin-bottom, 100);
+      }
+
+      .tab {
+        @include vw-mo(margin-bottom, 80);
+        &__box {
+          justify-content: flex-start;
+        }
+        
+        &__item {
+          @include vw-mo(padding-right, 70);
+          @include vw-mo(height, 59);
+          &:last-child {padding-right: 0;}
+
+        }
+        &__btn {
+          @include vw-mo(border-bottom, 4 solid transparent); 
+          @include vw-mo(font-size, 36); 
+          @include vw-mo(line-height, 59);
+      
+          &.active {
+            @include vw-mo(border-bottom, 4 solid $color-red); 
+          }
+        }
+      }
+
+      .list {
+        @include vw-mo(grid-template-columns, 620);
+        @include vw-mo(grid-gap, 0);
+        
+        &__item {
+          @include vw-mo(width, 620);
+          @include vw-mo(height, 880);
+
+          &:nth-child(2) {
+            @include vw-mo(margin-top, 0);
+          }
+  
+          &:nth-child(2n - 1) {
+            @include vw-mo(margin-top, 0)
+          }
+        }
+      
+        &__img {
+          overflow: hidden;
+          @include vw-mo(height, 620);
+          @include vw-mo(border-radius, 60);        
+  
+          img {
+            transition: none;
+            &:hover {
+              transform: scale(1);
+            }
+          }
+        }
+
+        &__text {
+          @include vw-mo(margin-top, 46);
+        }
+           
+        &__title {
+          @include vw-mo(font-size, 36);
+          @include vw-mo(line-height, 64)
+        }
+
+        &__data {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 90%;
+          @include vw-mo(font-size, 36);
+          @include vw-mo(line-height, 62); 
+        }        
+      }
+
+      .btn-plus--portfolio {
+        @include vw-mo(width, 140);
+        @include vw-mo(height, 140);
+      }
+    }
+  }
