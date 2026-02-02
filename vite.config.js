@@ -29,6 +29,7 @@ export default defineConfig(() => {
           about: path.resolve(__dirname, 'src/about/index.html'),
           portfolio: path.resolve(__dirname, 'src/portfolio/index.html'),
           detail: path.resolve(__dirname, 'src/portfolio/detail/index.html'),
+          ai_lab: path.resolve(__dirname, 'src/ai_lab/index.html'),
           recruit: path.resolve(__dirname, 'src/recruit/index.html'),
           contact: path.resolve(__dirname, 'src/contact/index.html'),
         },
