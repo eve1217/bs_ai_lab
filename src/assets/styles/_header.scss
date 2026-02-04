@@ -57,6 +57,18 @@
         color: #f84525;
         // transition: 0.4s;
       }
+
+      &--external {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.2em;
+
+        .ico-external {
+          @include vw-max(width, 14);
+          @include vw-max(height, 14);
+          flex-shrink: 0;
+        }
+      }
     }
   }
 }
@@ -184,6 +196,13 @@
         &:hover {
           color: #fff;
           transition: 0.4s;
+        }
+
+        &--external {
+          .ico-external {
+            @include vw-mo(width, 30);
+            @include vw-mo(height, 30);
+          }
         }
       }
     }

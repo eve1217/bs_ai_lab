@@ -1,41 +1,945 @@
 @import './common';
-@import './animation';
-@import './banner';
 
+// ===========================
+// AI Lab Page - Futuristic Theme
+// ===========================
+
+$ailab-bg: #0A0B10;
+$ailab-blue: #3B82F6;
+$ailab-purple: #8B5CF6;
+$ailab-cyan: #22D3EE;
+$ailab-pink: #EC4899;
+
+// Override body background for AI Lab
 .bs-ai-lab {
-  .page {
-    .page-title {
-      font-family: $en;
-      font-weight: 600;
-      color: $color-white;
-      @include vw-max(font-size, 130);
-      @include vw-max(line-height, 142);
+  padding-top: 0;
+  max-width: none;
+  background-color: $ailab-bg;
+  color: #fff;
+  font-family: $en;
+  overflow-x: hidden;
+  min-height: 100vh;
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+// ===========================
+// Animations
+// ===========================
+
+// Entrance animations
+[data-animate] {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-animate="fade-up"] {
+  transform: translateY(30px);
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(-20px);
+}
+
+[data-animate="fade-right"] {
+  transform: translateX(20px);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+// Keyframes
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes sphere-rotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+@keyframes sphere-wobble {
+  0%, 100% { transform: rotateX(0deg); }
+  25% { transform: rotateX(10deg); }
+  75% { transform: rotateX(-10deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+@keyframes orbit-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes node-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+@keyframes line-draw {
+  0% { stroke-dashoffset: 200; opacity: 0; }
+  50% { stroke-dashoffset: 0; opacity: 0.6; }
+  100% { stroke-dashoffset: -200; opacity: 0; }
+}
+
+@keyframes ring-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes ring-spin-reverse {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+@keyframes scan-move {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400px); }
+}
+
+@keyframes accent-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes float-particle {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+// ===========================
+// Animated Background
+// ===========================
+.ailab-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+
+  &__blob {
+    position: absolute;
+    width: 384px;
+    height: 384px;
+    border-radius: 50%;
+    filter: blur(120px);
+    animation: pulse 4s ease-in-out infinite;
+
+    &--blue {
+      top: 25%;
+      left: 25%;
+      background: rgba($ailab-blue, 0.2);
     }
 
-    &__desc {
-      font-weight: 300;
-      letter-spacing: -0.03em;
-      opacity: 0.9;
-      @include vw-max(font-size, 22);
-      @include vw-max(line-height, 38);
+    &--purple {
+      bottom: 25%;
+      right: 25%;
+      background: rgba($ailab-purple, 0.2);
+      animation-delay: 1s;
     }
   }
 }
 
+// ===========================
+// Navigation
+// ===========================
+.ailab-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: rgba($ailab-bg, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  &__logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    background: linear-gradient(to right, $ailab-blue, $ailab-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__label {
+    font-size: 40px;
+    font-weight: 400;
+    color: #9CA3AF;
+  }
+
+  &__contact {
+    display: inline-block;
+    padding: 8px 24px;
+    border-radius: 9999px;
+    background: linear-gradient(to right, rgba($ailab-blue, 0.2), rgba($ailab-purple, 0.2));
+    border: 1px solid rgba($ailab-blue, 0.3);
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    backdrop-filter: blur(4px);
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: rgba($ailab-blue, 0.6);
+    }
+  }
+}
+
+// ===========================
+// Hero Section
+// ===========================
+.ailab-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 180px 24px 0;
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  &__text {
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin: 0;
+
+    &-line {
+      display: block;
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 1.1;
+
+      &--white {
+        background: linear-gradient(to right, #fff, #DBEAFE, #E9D5FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      &--gradient {
+        margin-top: 8px;
+        background: linear-gradient(to right, $ailab-blue, $ailab-purple, $ailab-pink);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+
+  &__desc {
+    font-size: 18px;
+    line-height: 1.75;
+    color: #D1D5DB;
+    max-width: 768px;
+    margin: 0 auto 48px;
+    font-family: $kr;
+  }
+}
+
+// ===========================
+// 3D Core Visual
+// ===========================
+.ailab-core {
+  position: relative;
+  width: 100%;
+  max-width: 672px;
+  margin: 0 auto 48px;
+  perspective: 1200px;
+
+  &__container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+  }
+
+  &__center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform: translateZ(0);
+  }
+
+  &__line {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: line-draw 3s ease-in-out infinite;
+  }
+}
+
+// Wireframe Sphere
+.ailab-sphere {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  transform-style: preserve-3d;
+  animation: sphere-rotate 25s linear infinite, sphere-wobble 15s ease-in-out infinite;
+
+  &__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba($ailab-blue, 0.3);
+
+    &--1 { transform: rotateX(0deg); }
+    &--2 { transform: rotateX(30deg); }
+    &--3 { transform: rotateX(60deg); border-color: rgba($ailab-purple, 0.3); }
+    &--4 { transform: rotateY(30deg); }
+    &--5 { transform: rotateY(60deg); border-color: rgba($ailab-purple, 0.3); }
+    &--6 { transform: rotateY(90deg); border-color: rgba($ailab-blue, 0.4); }
+  }
+
+  &__glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($ailab-blue, 0.4), rgba($ailab-purple, 0.4), rgba($ailab-pink, 0.2));
+    filter: blur(40px);
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+}
+
+// Orbiting nodes
+.ailab-orbits {
+  position: absolute;
+  inset: 0;
+}
+
+.ailab-orbit {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  margin-left: -200px;
+  margin-top: -200px;
+
+  &__node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(to right, $ailab-blue, $ailab-cyan);
+    box-shadow: 0 0 20px rgba($ailab-blue, 0.8);
+    animation: node-pulse 2s ease-in-out infinite;
+  }
+}
+
+// Rotating rings
+.ailab-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba($ailab-blue, 0.2);
+
+  &--outer {
+    width: 384px;
+    height: 384px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring-spin 30s linear infinite;
+  }
+
+  &--outer2 {
+    width: 448px;
+    height: 448px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-color: rgba($ailab-purple, 0.2);
+    animation: ring-spin-reverse 40s linear infinite;
+  }
+}
+
+// Floating particles
+.ailab-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ailab-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  animation: float-particle 8s ease-in-out infinite;
+
+  &--blue {
+    background: rgba($ailab-blue, 0.8);
+    box-shadow: 0 0 10px rgba($ailab-blue, 0.8);
+  }
+
+  &--purple {
+    background: rgba($ailab-purple, 0.8);
+    box-shadow: 0 0 10px rgba($ailab-purple, 0.8);
+  }
+}
+
+// Holographic scan
+.ailab-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  &__line {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba($ailab-cyan, 0.5), transparent);
+    filter: blur(2px);
+    animation: scan-move 4s linear infinite;
+  }
+}
+
+// Corner accents
+.ailab-accent {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  filter: blur(30px);
+
+  &--blue {
+    top: 0;
+    right: 0;
+    background: radial-gradient(circle, rgba($ailab-blue, 0.5) 0%, transparent 70%);
+    animation: accent-pulse 3s ease-in-out infinite;
+  }
+
+  &--purple {
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba($ailab-purple, 0.5) 0%, transparent 70%);
+    animation: accent-pulse 3s ease-in-out infinite 1.5s;
+  }
+}
+
+// ===========================
+// Services Section
+// ===========================
+.ailab-services {
+  position: relative;
+  padding: 96px 24px;
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  &__title {
+    font-size: 80px;
+    font-weight: 700;
+    margin: 0 0 24px;
+    background: linear-gradient(to right, #fff, #9CA3AF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: $en;
+  }
+
+  &__subtitle {
+    color: #9CA3AF;
+    font-size: 18px;
+    max-width: 672px;
+    margin: 0 auto;
+    font-family: $kr;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+// ===========================
+// Service Cards
+// ===========================
+.ailab-card {
+  position: relative;
+
+  &__inner {
+    position: relative;
+    height: 100%;
+    border-radius: 16px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: border-color 0.5s, box-shadow 0.5s;
+
+    &:hover {
+      border-color: rgba($ailab-blue, 0.5);
+      box-shadow: 0 25px 50px -12px rgba($ailab-blue, 0.2);
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    font-size: 10px;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    background: rgba($ailab-blue, 0.2);
+    border: 1px solid rgba($ailab-blue, 0.3);
+    color: #93C5FD;
+    backdrop-filter: blur(4px);
+  }
+
+  &__image {
+    position: relative;
+    height: 192px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s;
+    }
+
+    &-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, $ailab-bg, rgba($ailab-bg, 0.5) 50%, transparent);
+    }
+  }
+
+  &__inner:hover &__image img {
+    transform: scale(1.1);
+  }
+
+  &__content {
+    padding: 24px;
+    position: relative;
+  }
+
+  &__icon {
+    display: inline-flex;
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba($ailab-blue, 0.2), rgba($ailab-purple, 0.2));
+    border: 1px solid rgba($ailab-blue, 0.3);
+    margin-bottom: 16px;
+    color: $ailab-blue;
+  }
+
+  &__number {
+    font-size: 60px;
+    opacity: 0.1;
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    pointer-events: none;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #fff;
+    font-family: $en;
+  }
+
+  &__title-kr {
+    font-size: 24px;
+    color: #93C5FD;
+    margin: 0 0 4px;
+    font-family: $kr;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: #9CA3AF;
+    margin: 0 0 24px;
+    font-family: $kr;
+  }
+
+  &__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li {
+      font-size: 14px;
+      color: #D1D5DB;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-family: $kr;
+    }
+  }
+
+  &__bullet {
+    color: $ailab-blue;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  &__hover-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba($ailab-blue, 0.05), rgba($ailab-purple, 0.05));
+  }
+
+  &__inner:hover &__hover-glow {
+    opacity: 1;
+  }
+
+  &__outer-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, $ailab-blue, $ailab-purple);
+    opacity: 0;
+    filter: blur(24px);
+    transition: opacity 0.5s;
+    z-index: -1;
+  }
+
+  &:hover &__outer-glow {
+    opacity: 0.2;
+  }
+}
+
+// ===========================
+// Vision Section
+// ===========================
+.ailab-vision {
+  position: relative;
+  padding: 128px 24px;
+
+  &__inner {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  &__card {
+    position: relative;
+    border-radius: 24px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 48px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &__pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image: radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($ailab-blue, 0.3), rgba($ailab-purple, 0.3));
+    border: 1px solid rgba($ailab-blue, 0.3);
+    margin-bottom: 32px;
+    color: $ailab-blue;
+  }
+
+  &__title {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    margin: 0 0 32px;
+    line-height: 1.2;
+    font-family: $en;
+
+    span {
+      background: linear-gradient(to right, #fff, #DBEAFE, #E9D5FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  &__desc {
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: #D1D5DB;
+    line-height: 1.75;
+    margin: 0 0 48px;
+    font-family: $kr;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__deco {
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    filter: blur(48px);
+
+    &--blue {
+      top: 0;
+      left: 0;
+      background: rgba($ailab-blue, 0.1);
+    }
+
+    &--purple {
+      bottom: 0;
+      right: 0;
+      background: rgba($ailab-purple, 0.1);
+    }
+  }
+}
+
+// ===========================
+// Buttons
+// ===========================
+.ailab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-family: $en;
+
+  &--primary {
+    background: linear-gradient(to right, $ailab-blue, $ailab-purple);
+    color: #fff;
+    box-shadow: 0 10px 25px rgba($ailab-blue, 0.3);
+
+    &:hover {
+      background: linear-gradient(to right, darken($ailab-blue, 5%), darken($ailab-purple, 5%));
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
+// ===========================
+// Footer
+// ===========================
+.ailab-footer {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 48px 24px;
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__logo-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  &__copy {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 0;
+  }
+}
+
+// ===========================
+// Mobile Responsive
+// ===========================
 @media all and (max-width: 768px) {
-  .bs-ai-lab {
-    .page {
-      @include vw-mo(width, 624);
+  .ailab-nav {
+    &__label {
+      font-size: 24px;
+    }
+  }
 
-      .page-title {
-        @include vw-mo(font-size, 96);
-        @include vw-mo(line-height, 112);
-      }
+  .ailab-hero {
+    padding-top: 140px;
 
-      &__desc {
-        @include vw-mo(font-size, 32);
-        @include vw-mo(line-height, 48);
-      }
+    &__title-line {
+      font-size: 36px !important;
+    }
+
+    &__desc {
+      font-size: 16px;
+    }
+  }
+
+  .ailab-sphere {
+    width: 200px;
+    height: 200px;
+  }
+
+  .ailab-orbit {
+    width: 260px;
+    height: 260px;
+    margin-left: -130px;
+    margin-top: -130px;
+  }
+
+  .ailab-ring {
+    &--outer {
+      width: 240px;
+      height: 240px;
+    }
+
+    &--outer2 {
+      width: 280px;
+      height: 280px;
+    }
+  }
+
+  .ailab-services {
+    padding: 48px 16px;
+
+    &__title {
+      font-size: 40px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ailab-card {
+    &__title {
+      font-size: 24px;
+    }
+
+    &__title-kr {
+      font-size: 16px;
+    }
+
+    &__number {
+      font-size: 40px;
+    }
+  }
+
+  .ailab-vision {
+    padding: 64px 16px;
+
+    &__card {
+      padding: 32px 20px;
+    }
+
+    &__buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .ailab-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .ailab-footer {
+    &__inner {
+      flex-direction: column;
+      text-align: center;
     }
   }
 }
