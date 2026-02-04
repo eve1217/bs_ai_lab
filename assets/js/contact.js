@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill.js";import{S as e,a,M as l}from"./Mouse.js";window.addEventListener("load",()=>{new e;const o=document.querySelectorAll(".js-scroll");Array.from(o).forEach(r=>{new a({target:r})}),new l});
